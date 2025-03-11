@@ -1,4 +1,4 @@
-﻿using MaterialGatePassTracker.Models;
+using MaterialGatePassTracker.Models;
 using Microsoft.Extensions.Options;
 using System;
 using System.Net.Http;
@@ -108,6 +108,41 @@ namespace MaterialGatePassTracker.Services
                 var response = await _httpClient.PostAsync(_emailSettings.ApiUrl, jsonContent);
 
                 var responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Response Status: {response.StatusCode}");
+                Console.WriteLine($"Response Body: {responseBody}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception($"Email API error: {response.StatusCode} - {responseBody}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Email Notification Failed: {ex.Message}");
+            }
+        }
+
+        public async Task SendStoreEmailAsync(string subject, string htmlBody, string recipientEmail)
+        {
+            var emailData = new
+            {
+                to = new List<string> { recipientEmail },
+                subject = subject,
+                html = htmlBody
+            };
+
+            try
+            {
+                var jsonContent = new StringContent(JsonSerializer.Serialize(emailData), Encoding.UTF8, "application/json");
+
+                if (!_httpClient.DefaultRequestHeaders.Contains("Authorization"))
+                {
+                    _httpClient.DefaultRequestHeaders.Add("Authorization", _emailSettings.AuthKey);
+                }
+
+                var response = await _httpClient.PostAsync(_emailSettings.ApiUrl, jsonContent);
+                var responseBody = await response.Content.ReadAsStringAsync();
+
                 Console.WriteLine($"Response Status: {response.StatusCode}");
                 Console.WriteLine($"Response Body: {responseBody}");
 
