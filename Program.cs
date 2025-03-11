@@ -45,6 +45,10 @@ builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Emai
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<EmailService>();
+builder.Services.AddScoped<IStoreRepo, StoreRepo>();
+builder.Services.AddScoped<IStoreService, StoreService>();
+builder.Services.AddScoped<IAuthRepo, AuthRepo>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 
