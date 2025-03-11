@@ -32,5 +32,7 @@ namespace MaterialGatePassTacker
         public DbSet<T_Gate_Pass_History> GatesPassHistory { get; set; }
 
         public DbSet<M_SOU> SOUs { get; set; }
+        public DbSet<Store> Store { get; set; }
+        public DbSet<T_Gate_Pass_Status> GatesPassesStatus { get; set; }
     }
 }
