@@ -1,0 +1,13 @@
+﻿@model PaginatedList<T_Gate_Pass>
+@foreach (var item in Model)
+{
+    <tr>
+        @foreach (var prop in typeof(T_Gate_Pass).GetProperties())
+        {
+            if (prop.Name != "GPID" && prop.Name != "PID" && prop.Name != "SID")
+            {
+                <td>@(prop.GetValue(item, null) ?? "-")</td>
+            }
+        }
+    </tr>
+}

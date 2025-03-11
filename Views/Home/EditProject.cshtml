@@ -1,0 +1,103 @@
+﻿@model MaterialGatePassTacker.Models.M_ProjectViewModel
+@{
+    ViewBag.Title = "EditProject";
+}
+
+<style>
+    .pass{
+        margin-left: 24px;
+    }
+    .isactive{
+        margin-left: 20px;
+    }
+    .formc{
+        margin-top: -20px;
+        height: 369px;
+    }
+</style>
+
+
+<div class="row">
+    @using (Html.BeginForm("EditProject", "Home", FormMethod.Post, new { @class = "formc", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="form-horizontal">
+
+
+
+            
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.m_Project1.PID)
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="form-group" style="margin-left: 10px;">
+                        <div class="col-md-2">
+
+                            <label>Project Name</label>
+                        </div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.m_Project1.Project_Name, new { htmlAttributes = new { @class = "form-control", @maxlength = "20" } })
+                            @Html.ValidationMessageFor(model => model.m_Project1.Project_Name, "", new { @class = "text-danger" })
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="margin-left: 10px;">
+                        <div class="col-md-2">
+                            <label>Project Description</label>
+                        </div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.m_Project1.Project_Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.m_Project1.Project_Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group" style="margin-left: 10px;">
+                        <div class="col-md-2">
+                            <label>Gate</label>
+                        </div>
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.m_Project1.GID, Model.Gatelist ?? new List<SelectListItem>(), "-Please select Gate-", new { @class = "form-control" })
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group" style="margin-left: 10px;">
+                        <div class="col-md-2">
+                            @Html.LabelFor(model => model.m_Project1.IsActive)
+                        </div>
+                        @Html.CheckBoxFor(model => model.m_Project1.IsActive, new { htmlAttributes = new { @class = "isactive" } })
+                        @Html.ValidationMessageFor(model => model.m_Project1.IsActive, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+
+            <br />
+            <div class="row">
+                <div class="form-group">
+                    <p class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Edit" class="btn btn-default btn-primary" style="width: 84%;
+    margin-left: -7px;
+    margin-top: -27px;
+    background: #007bff;" />
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+        </div>
+    }
+
+</div>

@@ -1,0 +1,64 @@
+﻿@model MaterialGatePassTacker.Models.Login
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    body {
+        background-image: url("/images/material-tracker.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    form{
+        margin-top: 54px;
+        margin-left: 455px;
+    }
+
+    .input {
+        width: 130% ;
+        margin-left: -14px !important;
+    }
+</style>
+
+ @using (Html.BeginForm(FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+    <h4 style="padding-bottom: 23px;font-weight: 600;">Sign-In</h4>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+  <div class="row">
+
+        <div class="form-group">
+            <label for="username">UserName</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.User_Name, new { htmlAttributes = new { @class = "form-control input", autocomplete = "off", placeholder = "Enter UserName" } })
+                @Html.ValidationMessageFor(model => model.User_Name, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+  
+  </div>
+  <div class="row">
+        <div class="form-group">
+            <label for="password">Password</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control input", type = "password", autocomplete = "off", placeholder = "Enter Password" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+  </div>
+  <button type="submit">Login</button>
+    }
+
+
+
+<!--
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+-->
