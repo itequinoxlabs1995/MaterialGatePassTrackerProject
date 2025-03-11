@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using MaterialGatePassTracker.Middleware;
+using MaterialGatePassTracker.DAL;
+using MaterialGatePassTracker.BAL;
 
 var builder = WebApplication.CreateBuilder(args);
 
