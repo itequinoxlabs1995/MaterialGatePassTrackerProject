@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MaterialGatePassTacker.Models;
+using MaterialGatePassTracker.Models;
 
 namespace MaterialGatePassTacker
 {
