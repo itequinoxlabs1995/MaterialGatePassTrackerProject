@@ -9,14 +9,14 @@ using System.Net;
 
 namespace MaterialGatePassTracker.BAL
 {
-    public interface IBusinessClass
+    public interface IHomeBusinessLogicClass
     {
         // Task<IEnumerable<D_User>> GetUsersData();
        // IEnumerable<M_Role> AllRoles();
     }
 
 
-    public class HomeBusinessLogicClass : IBusinessClass
+    public class HomeBusinessLogicClass : IHomeBusinessLogicClass
     {
         private readonly MaterialDbContext _materialDbContext;
         private readonly string _logFile;
