@@ -815,8 +815,9 @@ namespace MaterialGatePassTracker.BAL
         private static string m_exePath = string.Empty;
         public static void LogWrite(string logMessage, string path)
         {
-            // m_exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            m_exePath = path;
+           var filepath =new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory())).Root + $@"";
+
+            m_exePath = filepath + path;
             string fullpath = m_exePath + "\\" + "log_" + DateTime.Now.ToString("dd-MMM-yyyy") + ".txt";
 
             if (!File.Exists(fullpath))
