@@ -31,7 +31,7 @@ namespace MaterialGatePassTackerAPI.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public async Task<IActionResult> Login([FromBody] D_User model)
+        public async Task<IActionResult> Login([FromBody] Login model)
         {
             try
             {
