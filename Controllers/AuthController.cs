@@ -23,31 +23,46 @@ namespace MaterialGatePassTackerAPI.Controllers
     public class AuthController : Controller
     {
         private readonly IAuthService _authService;
+       
+ public AuthController(IAuthService authService, MaterialDbContext materialDbContext, IConfiguration configuration, EmailService emailService, AuthBusinessLogicClass authBusinessLogic)
+{
+     _authService = authService;
+    _context = materialDbContext;
+    _configuration = configuration;
+    _businessClass = authBusinessLogic;
+}
 
-        public AuthController(IAuthService authService)
-        {
-            _authService = authService;
-        }
+         [HttpPost]
+ [Route("Login")]
+ public async Task<IActionResult> Login([FromBody] Login model)
+ {
+    var user = (dynamic)null;
+     try
+     {
+         if (ModelState.IsValid)
+         {
+             user= _businessClass.Login(model);
+             
+         }
+         else
+         {
+             return Ok(new
+             { Status = "Error", Message = "Please Enter Valid Username and Password" }
+             );
 
-        [HttpPost]
-        [Route("Login")]
-        public async Task<IActionResult> Login([FromBody] Login model)
-        {
-            try
-            {
-                if (!ModelState.IsValid) return BadRequest("Invalid input.");
+         }
 
-                var (isSuccess, result) = await _authService.LoginAsync(model);
-                if (!isSuccess) return Unauthorized(result);
+       
 
-                return Ok(new { token = result });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal Server Error: {ex.Message}");
-            }
-        }
+     }
+     catch (Exception exc)
+     {
+         exc.Message.ToString();
+     }
 
+     return Ok(user);
+
+ }
         [HttpPost]
         [Route("GatePassEntry")]
         public async Task<IActionResult> GatePassEntry([FromBody] T_Gate_Pass request, [FromQuery] List<string> filePaths)
