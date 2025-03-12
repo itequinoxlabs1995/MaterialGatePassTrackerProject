@@ -13,7 +13,7 @@ namespace MaterialGatePassTacker.Models
 
         [Key]
 
-        public int? UID { get; set; }
+        public int UID { get; set; }
 
         [Required(ErrorMessage = "User Name is required")]
         // [Remote("CheckPassIsAvailable", "User_Name")]
