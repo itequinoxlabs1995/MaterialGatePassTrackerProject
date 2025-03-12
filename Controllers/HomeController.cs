@@ -1,5 +1,6 @@
 using Azure.Core;
 using MaterialGatePassTacker.Models;
+using MaterialGatePassTracker.BAL;
 using MaterialGatePassTracker.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Diagnostics;
+using System.Reflection;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 
@@ -16,19 +18,35 @@ namespace MaterialGatePassTracker.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly string _logFile;
+
         private readonly ILogger<HomeController> _logger;
         private readonly MaterialGatePassTacker.MaterialDbContext _materialDbContext;
+        private readonly HomeBusinessLogicClass _businessClass;
 
-        public HomeController(ILogger<HomeController> logger, MaterialGatePassTacker.MaterialDbContext dbContext)
+        public HomeController(ILogger<HomeController> logger,IConfiguration config, MaterialGatePassTacker.MaterialDbContext dbContext, HomeBusinessLogicClass businessClass)
         {
-            _logger = logger;
-            _materialDbContext = dbContext;
+            try
+            {
+                _logFile = config["Logging:LogFilePath"].ToString();
+                _logger = logger;
+                _materialDbContext = dbContext;
+                _businessClass = businessClass;
+
+
+            }
+            catch (Exception exc)
+            {
+                LogWriterClass.LogWrite("HomeController Constructor:"+exc.Message.ToString(), _logFile);
+
+            }
 
         }
 
         public IActionResult Index()
         {
             return View();
+
         }
         [HttpGet]
         public IActionResult AddUser()
@@ -38,21 +56,20 @@ namespace MaterialGatePassTracker.Controllers
         [HttpGet]
         public IActionResult AllUsers()
         {
-            IEnumerable<D_User> newList = _materialDbContext.Users.Where(o => o.IsActive == true).ToList();
-            /*foreach (var item in _materialDbContext.Users.ToList())
+            IEnumerable<D_User> newList = null;
+            try
             {
-                D_User listItem = new D_User();
-                listItem.User_Name = item.User_Name;
-                listItem.Password = item.Password;
-                listItem.Email_ID = item.Email_ID;
-                listItem.IsActive = item.IsActive;
-                newList.Add(listItem);
+                newList = _businessClass.AllUsers();
+               
+                LogWriterClass.LogWrite("AllUser Action:Get User Data Successfully", _logFile);
             }
-			*/
+            catch(Exception exc)
+            {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("AllUser Action:" + exc.Message.ToString(), _logFile);
+            }
 
             return View(newList);
-
-
 
             // return View(_materialDbContext.Users.ToList());
         }
@@ -60,44 +77,54 @@ namespace MaterialGatePassTracker.Controllers
         [HttpGet]
         public IActionResult AllRoles()
         {
-            IEnumerable<M_Role> newList = _materialDbContext.Roles.ToList();
+            IEnumerable<M_Role> newList = null;
+            try
+            {
+                newList = _businessClass.AllRoles();
+                LogWriterClass.LogWrite("AllRoles Action:Get User Roles Successfully", _logFile);
 
+            }
+            catch (Exception exc)
+            {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("AllRoles Action:" + exc.Message.ToString(), _logFile);
+            }
             return View(newList);
-
             // return View(_materialDbContext.Users.ToList());
         }
-
-
 
         [HttpGet]
         public IActionResult AllProjects()
         {
-            IEnumerable<M_Project> newList = _materialDbContext.Projects.Where(o => o.IsActive == true).ToList();
+            IEnumerable<M_Project> newList = null;
+            try { 
+             newList= _businessClass.AllProjects();
+             LogWriterClass.LogWrite("AllProjects Action:Get Projects Successfully", _logFile);
 
+            }
+            catch (Exception exc)
+            {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("AllProjects Action:" + exc.Message.ToString(), _logFile);
+            }
             return View(newList);
 
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult AddUser(D_UserViewModel userModel)
         {
+            IEnumerable<D_User> newList = null;
             try
             {
                 if (ModelState.IsValid)
                 {
-                    D_User USertbl = new D_User();
-                    USertbl.User_Name = userModel.d_user.User_Name;
-                    USertbl.Password = EncodePasswordToBase64(userModel.d_user.Password);
-                    USertbl.Email_ID = userModel.d_user.Email_ID;
-                    USertbl.Mobile_No = userModel.d_user.Mobile_No;
-                    USertbl.RID = userModel.d_user.RID;
-                    USertbl.IsActive = userModel.d_user.IsActive;
-                    USertbl.CreatedOn = DateTime.Now;
-                    _materialDbContext.Users.Add(USertbl);
-                    _materialDbContext.SaveChanges();
+                    LogWriterClass.LogWrite("AddUser Action:Model is Valid", _logFile);
 
+                    newList = _businessClass.AddUser(userModel);
+
+                    LogWriterClass.LogWrite("AddUser Action:Insert UserData Successfully", _logFile);                   
                     //for list return
 
                 }
@@ -113,8 +140,8 @@ namespace MaterialGatePassTracker.Controllers
             catch (Exception exc)
             {
                 exc.Message.ToString();
+                LogWriterClass.LogWrite("AddUser Action:" + exc.Message.ToString(), _logFile);
             }
-            IEnumerable<D_User> newList = _materialDbContext.Users.ToList();
             return RedirectToAction("AllUsers", newList);
             //return PartialView("AddUser", userModel);
 
@@ -126,18 +153,17 @@ namespace MaterialGatePassTracker.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult AddRole(M_RoleViewModel userModel)
         {
+            IEnumerable<M_Role> newList = null;
             try
             {
                 if (ModelState.IsValid)
                 {
-                    M_Role USertbl = new M_Role();
-                    USertbl.Role_Name = userModel.m_Role.Role_Name;
-                    USertbl.Role_Description = userModel.m_Role.Role_Description;
-                    USertbl.CreatedOn = DateTime.Now;
-                    _materialDbContext.Roles.Add(USertbl);
-                    _materialDbContext.SaveChanges();
+                    LogWriterClass.LogWrite("AddRole Action:Model is Valid", _logFile);
 
-                    //for list return
+                    newList = _businessClass.AddRole(userModel);
+                   
+                    LogWriterClass.LogWrite("AddRole Action:Insert Role Successfully ", _logFile);
+                   //for list return
 
                 }
                 else
@@ -151,8 +177,10 @@ namespace MaterialGatePassTracker.Controllers
             catch (Exception exc)
             {
                 exc.Message.ToString();
+                LogWriterClass.LogWrite("AddRole Action:" + exc.Message.ToString(), _logFile);
+
             }
-            IEnumerable<M_Role> newList = _materialDbContext.Roles.ToList();
+           // IEnumerable<M_Role> newList = _materialDbContext.Roles.ToList();
             return RedirectToAction("AllRoles", newList);
 
             //return PartialView("AddUser", userModel);
@@ -164,18 +192,16 @@ namespace MaterialGatePassTracker.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult AddProject(M_ProjectViewModel userModel)
         {
+            IEnumerable<M_Project> newList = null;
             try
             {
                 if (ModelState.IsValid)
                 {
-                    M_Project USertbl = new M_Project();
-                    USertbl.Project_Name = userModel.m_Project.Project_Name;
-                    USertbl.Project_Description = userModel.m_Project.Project_Description;
-                    USertbl.GID = userModel.m_Project.GID;
-                    USertbl.IsActive = userModel.m_Project.IsActive;
-                    USertbl.CreatedOn = DateTime.Now;
-                    _materialDbContext.Projects.Add(USertbl);
-                    _materialDbContext.SaveChanges();
+                    LogWriterClass.LogWrite("AddProject Action:Model is Valid", _logFile);
+
+                    newList = _businessClass.AddProject(userModel);
+
+                    LogWriterClass.LogWrite("AddProject Action:Insert Project Successfully ", _logFile);
 
                     //for list return
 
@@ -191,57 +217,57 @@ namespace MaterialGatePassTracker.Controllers
             catch (Exception exc)
             {
                 exc.Message.ToString();
+                LogWriterClass.LogWrite("AddProject Action:" + exc.Message.ToString(), _logFile);
+
             }
-            IEnumerable<M_Project> newList = _materialDbContext.Projects.ToList();
             return RedirectToAction("AllProjects", newList);
 
 
         }
 
-
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult EditUser(D_UserViewModel model)
         {
+            IEnumerable<D_User> newList = null;
+            try { 
 
-            D_User USertbl = new D_User();
-            USertbl = _materialDbContext.Users.SingleOrDefault(b => b.UID == model.d_user1.UID);
-            if (USertbl != null)
+                newList= _businessClass.EditUser(model);
+           
+                LogWriterClass.LogWrite("EditUser Action:Edit User Successfully ", _logFile);
+
+                
+            }
+            catch (Exception exc)
             {
-                USertbl.User_Name = model.d_user1.User_Name;
-                USertbl.Password = EncodePasswordToBase64(model.d_user1.Password);
-                USertbl.Email_ID = model.d_user1.Email_ID;
-                USertbl.Mobile_No = model.d_user1.Mobile_No;
-                USertbl.IsActive = model.d_user1.IsActive;
-                USertbl.ModifiedOn = DateTime.Now;
-                _materialDbContext.SaveChanges();
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("EditUser Action:" + exc.Message.ToString(), _logFile);
+
             }
 
-            IEnumerable<D_User> newList = _materialDbContext.Users.ToList();
             return RedirectToAction("AllUsers", newList);
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult EditProject(M_ProjectViewModel model)
         {
+            IEnumerable<M_Project> newList = null;
+            try { 
+            
+                newList = _businessClass.EditProject(model);
+                LogWriterClass.LogWrite("EditProject Action:Edit Project Successfully ", _logFile);
 
-            M_Project USertbl = new M_Project();
-            USertbl = _materialDbContext.Projects.SingleOrDefault(b => b.PID == model.m_Project1.PID);
-            if (USertbl != null)
+            
+            }
+            catch (Exception exc)
             {
-                USertbl.Project_Name = model.m_Project1.Project_Name;
-                USertbl.Project_Description = model.m_Project1.Project_Description;
-                USertbl.GID = model.m_Project1.GID;
-                USertbl.IsActive = model.m_Project1.IsActive;
-                USertbl.ModifiedOn = DateTime.Now;
-                _materialDbContext.SaveChanges();
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("EditProject Action:" + exc.Message.ToString(), _logFile);
+
             }
 
-            IEnumerable<M_Project> newList = _materialDbContext.Projects.ToList();
+           // IEnumerable<M_Project> newList = _materialDbContext.Projects.ToList();
             return RedirectToAction("AllProjects", newList);
         }
 
@@ -250,130 +276,124 @@ namespace MaterialGatePassTracker.Controllers
         {
             D_UserViewModel model = new D_UserViewModel();
 
-            model.d_user1 = _materialDbContext.Users.SingleOrDefault(mytable => mytable.UID == ID);
-            model.Rolelist = (from Table in _materialDbContext.Roles
-                              select new SelectListItem
-                              {
-                                  Selected = true,
-                                  Text = Table.Role_Name,
-                                  Value = Table.RID.ToString()
-                              }).ToList();
+            try
+            {
+                model = _businessClass.EditUserData(ID);
 
+               
+            LogWriterClass.LogWrite("EditUserData Action:Edit UserData Successfully", _logFile);
+
+            }
+            catch (Exception exc)
+            {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("EditUserData Action:" + exc.Message.ToString(), _logFile);
+
+            }
             return Json(model);
-        }
 
+        }
 
         [HttpPost]
         public JsonResult EditProjectData(int ID)
         {
-            M_ProjectViewModel model = new M_ProjectViewModel();
+            M_ProjectViewModel model = new M_ProjectViewModel(); 
+            try { 
+            
+                model = _businessClass.EditProjectData(ID);
+            LogWriterClass.LogWrite("EditProjectData Action:Edit ProjectData Successfully", _logFile);
 
-            model.m_Project1 = _materialDbContext.Projects.SingleOrDefault(mytable => mytable.PID == ID);
-            model.Gatelist = (from Table in _materialDbContext.Gates
-                              select new SelectListItem
-                              {
-                                  // Selected = true,
-                                  Text = Table.Gate_Location,
-                                  Value = Table.GID.ToString()
-                              }).ToList();
+        }
+            catch (Exception exc)
+            {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("EditProjectData Action:" + exc.Message.ToString(), _logFile);
 
+            }
             return Json(model);
         }
-
-
 
         [HttpPost]
         public JsonResult RoleList()
         {
             M_Role model = new M_Role();
 
-            model.Rolelist = (from Table in _materialDbContext.Roles
-                              select new SelectListItem
-                              {
-                                  Text = Table.Role_Name,
-                                  Value = Table.RID.ToString()
-                              }).ToList();
+            try { 
+           
+                model = _businessClass.RoleList();
+            LogWriterClass.LogWrite("RoleList Action:Get RoleList Successfully", _logFile);
 
+        }
+            catch (Exception exc)
+            {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("RoleList Action:" + exc.Message.ToString(), _logFile);
+
+            }
 
             return Json(model);
         }
-
 
         [HttpPost]
         public JsonResult GateList()
         {
             M_Gate model = new M_Gate();
+            try { 
+           
+                model = _businessClass.GateList();
+            LogWriterClass.LogWrite("GateList Action:Get GateList Successfully", _logFile);
 
-            model.Gatelist = (from Table in _materialDbContext.Gates
-                              select new SelectListItem
-                              {
-                                  Text = Table.Gate_Location,
-                                  Value = Table.GID.ToString()
-                              }).ToList();
+        }
+            catch (Exception exc)
+            {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("GateList Action:" + exc.Message.ToString(), _logFile);
 
+            }
 
             return Json(model);
         }
 
-
         public IActionResult DeleteUser(int id)
         {
-            try
-            {
-
-                D_User USertbl = new D_User();
-                USertbl = _materialDbContext.Users.SingleOrDefault(b => b.UID == id);
-                if (USertbl != null)
-                {
-                    USertbl.IsActive = false;
-                    USertbl.ModifiedOn = DateTime.Now;
-                    _materialDbContext.SaveChanges();
-                    ViewBag.Message = "User details deleted successfully";
-
-                }
+            IEnumerable<D_User> newList = null;
 
 
-                IEnumerable<D_User> newList = _materialDbContext.Users.ToList();
-                return RedirectToAction("AllUsers", newList);
-            }
-
+                try { 
+                newList = _businessClass.DeleteUser(id);
+               
+                    LogWriterClass.LogWrite("DeleteUser Action:User details deleted successfully", _logFile);
+                   
+                  }
             catch (Exception exc)
             {
                 exc.Message.ToString();
-                return RedirectToAction("Error1");
-
+                LogWriterClass.LogWrite("DeleteUser Action:" + exc.Message.ToString(), _logFile);
 
             }
+           return RedirectToAction("AllUsers", newList);
+
+           
         }
 
         public IActionResult DeleteProject(int id)
         {
+            IEnumerable<M_Project> newList = null;
             try
             {
-
-                M_Project USertbl = new M_Project();
-                USertbl = _materialDbContext.Projects.SingleOrDefault(b => b.PID == id);
-                if (USertbl != null)
-                {
-                    USertbl.IsActive = false;
-                    USertbl.ModifiedOn = DateTime.Now;
-                    _materialDbContext.SaveChanges();
-                    ViewBag.Message = "Project details deleted successfully";
-
-                }
-
-
-                IEnumerable<M_Project> newList = _materialDbContext.Projects.ToList();
-                return RedirectToAction("AllProjects", newList);
+            newList = _businessClass.DeleteProject(id);
+            LogWriterClass.LogWrite("DeleteProject Action:Project details deleted successfully", _logFile);
+             
             }
 
             catch (Exception exc)
             {
                 exc.Message.ToString();
+                LogWriterClass.LogWrite("DeleteUser Action:" + exc.Message.ToString(), _logFile);
                 return RedirectToAction("Error1");
-
-
             }
+            return RedirectToAction("AllProjects", newList);
+
         }
 
         public IActionResult Sidebar1()
@@ -386,129 +406,108 @@ namespace MaterialGatePassTracker.Controllers
         }
         public IActionResult Dashboard()
         {
-            IEnumerable<SelectListItem> Soulist = _materialDbContext.SOUs.Select(s => new SelectListItem
-            {
-                //Selected = false,
-                Text = s.Sou_code,
-                Value = s.SOUID.ToString()
-            }).ToList();
-
-
+            IEnumerable<SelectListItem> Soulist = null;
             T_Gate_Pass t_Gate_Pass = new();
-            t_Gate_Pass.Soulist = Soulist ?? [];
+            try
+            {
 
+                t_Gate_Pass = _businessClass.Dashboard();
+                LogWriterClass.LogWrite("Dashboard Action:Get Soulist Successfully", _logFile);
+
+            }
+            catch (Exception exc)
+            {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("Dashboard Action:" + exc.Message.ToString(), _logFile);
+
+            }
 
             return View(t_Gate_Pass);
-        }
 
+        }
 
         [HttpPost]
         public JsonResult AjaxMethod_CascadingList(string type, int IDCast)
         {
             T_Gate_Pass model = new();
 
-            switch (type)
+            try
             {
-                case "SOUID":
-
-
-                    model.Projectlist = (from Table in _materialDbContext.Projects
-                                         where Table.SOUID == IDCast
-                                         select new SelectListItem
-                                         {
-                                             // Selected = false,
-                                             Text = Table.Project_Name,
-                                             Value = Table.PID.ToString()
-                                         }).ToList();
-
-
-                    break;
-
-
-
-                case "PID":
-
-                    model.Gatelist = (from Table in _materialDbContext.Gates
-                                      where Table.PID == IDCast
-                                      select new SelectListItem
-                                      {
-                                          // Selected = false,
-                                          Text = Table.Gate_Location,
-                                          Value = Table.GID.ToString()
-                                      }).ToList();
-
-
-                    break;
-
+               model = _businessClass.AjaxMethod_CascadingList(type, IDCast);
+            }
+            catch (Exception exc) {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("AjaxMethod_CascadingList Action:" + exc.Message.ToString(), _logFile);
 
             }
             return Json(model);
         }
 
-
-
-
-
         [HttpPost]
         public async Task<JsonResult> AjaxMethod(DateTime StartDate, DateTime EndDate)
         {
+            var result = (dynamic)null;
 
+            try
+            {
+                result = _businessClass.AjaxMethod(StartDate, EndDate);
+                LogWriterClass.LogWrite("AjaxMethod Action:AjaxMethod Success", _logFile);
 
-            var result = await (from Table in _materialDbContext.GatesPasses
-                                where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                select new GraphData
-                                {
-                                    // Table.GPID,
-                                    Date = Table.CreatedOn.Date,
-                                    Pending = 20,
-                                    Completed = 30
-                                    // Table.Vendor_Name
-                                }).ToListAsync();
+            }
+            catch (Exception exc)
+            {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("AjaxMethod Action:" + exc.Message.ToString(), _logFile);
 
+            }
 
-            //List<int> resultBrands = result.ToList(); // it should be select just Table but I will show the results to be clear.
 
             return Json(result);
         }
-
-
-
 
         [HttpPost]
         public async Task<JsonResult> AjaxSouData(DateTime StartDate, DateTime EndDate, int Selected_SOU)
         {
 
+            var result = (dynamic)null;
 
-            var result = await (from Table in _materialDbContext.SOUs
-                                where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                && Table.SOUID == Selected_SOU
-                                select new
-                                {
-                                    Date = Table.CreatedOn.Date,
-                                    data = Table.SOUID,
-                                    labels = Table.Sou_code
-                                }).ToListAsync();
+            try
+            {
+                result = _businessClass.AjaxSouData(StartDate, EndDate, Selected_SOU);
+                LogWriterClass.LogWrite("AjaxSouData Action:Get AjaxSouData Successfully", _logFile);
+
+
+            }
+            catch (Exception exc)
+            {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("AjaxSouData Action:" + exc.Message.ToString(), _logFile);
+
+            }
 
             return Json(result);
         }
-
 
         [HttpPost]
         public async Task<JsonResult> AjaxProjectData(DateTime StartDate, DateTime EndDate, int Selected_PID)
         {
 
+            var result = (dynamic)null;
 
-            var result = await (from Table in _materialDbContext.Projects
-                                where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                && Table.PID == Selected_PID
-                                select new
-                                {
-                                    Date = Table.CreatedOn.Date,
-                                    labels = Table.Project_Name,
-                                    data = Table.GID
-                                }).ToListAsync();
+            try
+            {
+                result = _businessClass.AjaxProjectData(StartDate, EndDate, Selected_PID);  
+
+                LogWriterClass.LogWrite("AjaxProjectData Action:Get AjaxProjectData Successfully", _logFile);
 
 
+            }
+            catch (Exception exc)
+            {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("AjaxProjectData Action:" + exc.Message.ToString(), _logFile);
+
+            }
 
             return Json(result);
         }
@@ -517,57 +516,69 @@ namespace MaterialGatePassTracker.Controllers
         public async Task<JsonResult> AjaxGateData(DateTime StartDate, DateTime EndDate, int Selected_GID)
         {
 
+            var result = (dynamic)null;
 
-            var result = await (from Table in _materialDbContext.Gates
-                                where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                 && Table.GID == Selected_GID
-                                select new
-                                {
-                                    Date = Table.CreatedOn.Date,
-                                    labels = Table.Gate_Location,
-                                    data = Table.PID
-                                }).ToListAsync();
+            try
+            {
+                result = _businessClass.AjaxGateData(StartDate, EndDate, Selected_GID);
 
+                LogWriterClass.LogWrite("AjaxGateData Action:Get AjaxGateData Successfully", _logFile);
+
+
+            }
+            catch (Exception exc)
+            {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("AjaxGateData Action:" + exc.Message.ToString(), _logFile);
+
+            }
 
 
             return Json(result);
         }
-
 
         [HttpPost]
         public async Task<JsonResult> AjaxSouData1(DateTime StartDate, DateTime EndDate)
         {
+            var result = (dynamic)null;
+
+            try
+            {
+                result = _businessClass.AjaxSouData1(StartDate, EndDate);
+                LogWriterClass.LogWrite("AjaxSouData1 Action:Get AjaxSouData1 Successfully", _logFile);
 
 
-            var result = await (from Table in _materialDbContext.SOUs
-                                where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                // && Table.SOUID == Selected_SOU
-                                select new
-                                {
-                                    Date = Table.CreatedOn.Date,
-                                    data = Table.SOUID,
-                                    labels = Table.Sou_code
-                                }).ToListAsync();
+            }
+            catch (Exception exc) {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("AjaxSouData1 Action:" + exc.Message.ToString(), _logFile);
+
+            }
+            
 
             return Json(result);
         }
-
 
         [HttpPost]
         public async Task<JsonResult> AjaxProjectData1(DateTime StartDate, DateTime EndDate)
         {
 
+            var result = (dynamic)null;
 
-            var result = await (from Table in _materialDbContext.Projects
-                                where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                // && Table.PID == Selected_PID
-                                select new
-                                {
-                                    Date = Table.CreatedOn.Date,
-                                    labels = Table.Project_Name,
-                                    data = Table.GID
-                                }).ToListAsync();
+            try
+            {
+                 result = _businessClass.AjaxProjectData1(StartDate, EndDate);
 
+                LogWriterClass.LogWrite("AjaxProjectData1 Action:Get AjaxProjectData1 Successfully", _logFile);
+
+
+            }
+            catch (Exception exc)
+            {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("AjaxProjectData1 Action:" + exc.Message.ToString(), _logFile);
+
+            }
 
 
             return Json(result);
@@ -576,56 +587,44 @@ namespace MaterialGatePassTracker.Controllers
         [HttpPost]
         public async Task<JsonResult> AjaxGateData1(DateTime StartDate, DateTime EndDate)
         {
+            var result = (dynamic)null;
 
+            try
+            {
 
-            var result = await (from Table in _materialDbContext.Gates
-                                where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                // && Table.GID == Selected_GID
-                                select new
-                                {
-                                    Date = Table.CreatedOn.Date,
-                                    labels = Table.Gate_Location,
-                                    data = Table.PID
-                                }).ToListAsync();
+                result = _businessClass.AjaxGateData1(StartDate, EndDate);
 
+                LogWriterClass.LogWrite("AjaxGateData1 Action:Get AjaxGateData1 Successfully", _logFile);
+
+            }
+            catch (Exception exc)
+            {
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("AjaxGateData1 Action:" + exc.Message.ToString(), _logFile);
+
+            }
 
 
             return Json(result);
         }
 
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(Login model)
         {
+            LogWriterClass.LogWrite("Start Application", _logFile);
 
             try
             {
                 if (ModelState.IsValid)
                 {
-                    string Encypass = EncodePasswordToBase64(model.Password);
-                    //  string decpass = DecodeFrom64(Encypass);
-
-                    bool Loginuser = _materialDbContext.Users
-                            .FirstOrDefault(u => u.User_Name == model.User_Name
-                                         && u.Password == Encypass) != null;
-                    //Db check
-                    // if (_materialDbContext.Users.Where(u => u.User_Name == model.User_Name).Any())
-                    if (Loginuser == true)
-                    {
-                        //JWT Token Logic
-                        return RedirectToAction("Dashboard");
-
-                    }
-                    else
-                    {
-                        return View(model);
-                    }
-
+                   var model1 = _businessClass.Index(model);
+                    return RedirectToAction("Dashboard");
                 }
                 else
                 {
+                    LogWriterClass.LogWrite("Login Action:Model is Invalid", _logFile);
+                    return View(model);
 
                 }
 
@@ -633,13 +632,13 @@ namespace MaterialGatePassTracker.Controllers
             catch (Exception exc)
             {
                 exc.Message.ToString();
+                LogWriterClass.LogWrite("Login Action:" + exc.Message.ToString(), _logFile);
+
 
             }
             return View(model);
 
         }
-
-
 
         //this function Convert to Encord your Password
         public static string EncodePasswordToBase64(string password)
@@ -669,8 +668,6 @@ namespace MaterialGatePassTracker.Controllers
             return result;
         }
 
-
-
         [HttpGet]
         /* public IActionResult CheckPassIsAvailable(D_User model)
          {
@@ -684,7 +681,6 @@ namespace MaterialGatePassTracker.Controllers
          }
          */
 
-
         public IActionResult Privacy()
         {
             return View();
@@ -697,6 +693,57 @@ namespace MaterialGatePassTracker.Controllers
         }
     }
 
+
+    public class LogWriterClass
+    {
+        private static string m_exePath = string.Empty;
+        public static void LogWrite(string logMessage, string path)
+        {
+           // m_exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            m_exePath = path;
+            string fullpath = m_exePath + "\\" + "log_"+ DateTime.Now.ToString("dd-MMM-yyyy") +".txt";
+
+           if (!File.Exists(fullpath))
+            {
+                File.Create(fullpath);
+            }
+            
+            try
+            {
+                
+                    FileStream fs = new FileStream(fullpath, FileMode.Append);
+
+                    using (StreamWriter w = new StreamWriter(fs))
+                        AppendLog(logMessage, w);
+                
+               
+                
+            }
+            catch (Exception ex)
+            {
+               //AppendLog(ex.ToString());
+            }
+
+        }
+
+        private static void AppendLog(string logMessage, TextWriter txtWriter)
+        {
+            try
+            {
+               // txtWriter.Write("Log Start : ");
+               // txtWriter.WriteLine("{0} {1}", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString());
+                //txtWriter.WriteLine("  :");
+                txtWriter.WriteLine("{0},{1}", DateTime.Now.ToLongDateString()+" ", DateTime.Now.ToLongTimeString()+" :" +logMessage);
+               // txtWriter.WriteLine("-------------------------------");
+            }
+            catch (Exception ex)
+            {
+                txtWriter.Write(ex.Message);
+            }
+        }
+    }
+
+   
     public sealed record GraphData
     {
         public DateTime Date { get; set; }
