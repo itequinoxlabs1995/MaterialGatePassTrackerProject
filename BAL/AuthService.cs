@@ -22,7 +22,7 @@ namespace MaterialGatePassTracker.BAL
             _configuration = configuration;
         }
 
-        public async Task<(bool, string)> LoginAsync(Login model)
+        public async Task<(bool, string)> LoginAsync(D_User model)
         {
             string encryptedPassword = EncodePasswordToBase64(model.Password);
             var user = await _authRepository.GetUserAsync(model.User_Name);
