@@ -23,12 +23,11 @@ namespace MaterialGatePassTackerAPI.Controllers
     public class AuthController : Controller
     {
         private readonly IAuthService _authService;
-       
- public AuthController(IAuthService authService, MaterialDbContext materialDbContext, IConfiguration configuration, EmailService emailService, AuthBusinessLogicClass authBusinessLogic)
+        private readonly AuthBusinessLogicClass _businessClass;
+
+ public AuthController(IAuthService authService, AuthBusinessLogicClass authBusinessLogic)
 {
      _authService = authService;
-    _context = materialDbContext;
-    _configuration = configuration;
     _businessClass = authBusinessLogic;
 }
 
