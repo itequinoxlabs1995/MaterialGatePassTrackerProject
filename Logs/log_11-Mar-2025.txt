@@ -1,0 +1,104 @@
+Tuesday, March 11, 2025 ,11:59:30 AM :Start Application
+Tuesday, March 11, 2025 ,11:59:30 AM :Login Action:Model is valid
+Tuesday, March 11, 2025 ,11:59:32 AM :Login Action:Login Successfully
+Tuesday, March 11, 2025 ,11:59:34 AM :Dashboard Action:Get Soulist Successfully
+Tuesday, March 11, 2025 ,11:59:43 AM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Tuesday, March 11, 2025 ,11:59:46 AM :AllUser Action:Get User Data Successfully
+Tuesday, March 11, 2025 ,11:59:47 AM :AjaxMethod Action:AjaxMethod Success
+Tuesday, March 11, 2025 ,12:00:15 PM :AllRoles Action:Get User Roles Successfully
+Tuesday, March 11, 2025 ,12:01:01 PM :AjaxMethod Action:AjaxMethod Success
+Tuesday, March 11, 2025 ,12:04:11 PM :Start Application
+Tuesday, March 11, 2025 ,12:04:11 PM :Login Action:Model is valid
+Tuesday, March 11, 2025 ,12:04:12 PM :Login Action:Login Successfully
+Tuesday, March 11, 2025 ,12:04:12 PM :Dashboard Action:Get Soulist Successfully
+Tuesday, March 11, 2025 ,12:04:13 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Tuesday, March 11, 2025 ,12:04:27 PM :AllRoles BAL Method:Get User Roles Successfully
+Tuesday, March 11, 2025 ,12:04:30 PM :AllRoles Action:Get User Roles Successfully
+Tuesday, March 11, 2025 ,12:04:36 PM :AjaxMethod Action:AjaxMethod Success
+Tuesday, March 11, 2025 ,12:05:53 PM :Start Application
+Tuesday, March 11, 2025 ,12:05:53 PM :Login Action:Model is valid
+Tuesday, March 11, 2025 ,12:05:55 PM :Login Action:Validation Error
+Tuesday, March 11, 2025 ,12:05:59 PM :Start Application
+Tuesday, March 11, 2025 ,12:05:59 PM :Login Action:Model is valid
+Tuesday, March 11, 2025 ,12:05:59 PM :Login Action:Login Successfully
+Tuesday, March 11, 2025 ,12:05:59 PM :Dashboard Action:Get Soulist Successfully
+Tuesday, March 11, 2025 ,12:06:00 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Tuesday, March 11, 2025 ,12:06:26 PM :AjaxMethod_CascadingList Action:Get Projectlist Successfully
+Tuesday, March 11, 2025 ,12:06:31 PM :AjaxMethod_CascadingList Action:Get Gatelist Successfully
+Tuesday, March 11, 2025 ,12:06:38 PM :Dashboard Action:Get Soulist Successfully
+Tuesday, March 11, 2025 ,12:06:39 PM :AjaxMethod Action:AjaxMethod Success
+Tuesday, March 11, 2025 ,12:06:39 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Tuesday, March 11, 2025 ,12:06:39 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Tuesday, March 11, 2025 ,12:06:46 PM :AllRoles BAL Method:Get User Roles Successfully
+Tuesday, March 11, 2025 ,12:06:46 PM :AllRoles Action:Get User Roles Successfully
+Tuesday, March 11, 2025 ,12:06:46 PM :AjaxMethod Action:AjaxMethod Success
+Tuesday, March 11, 2025 ,12:29:51 PM :Start Application
+Tuesday, March 11, 2025 ,12:29:51 PM :Login Action:Model is valid
+Tuesday, March 11, 2025 ,12:29:52 PM :Login Action:Login Successfully
+Tuesday, March 11, 2025 ,12:29:52 PM :Dashboard Action:Get Soulist Successfully
+Tuesday, March 11, 2025 ,12:29:53 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Tuesday, March 11, 2025 ,12:29:53 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Tuesday, March 11, 2025 ,12:30:10 PM :AllRoles BAL Method:Get User Roles Successfully
+Tuesday, March 11, 2025 ,12:30:10 PM :AllRoles Action:Get User Roles Successfully
+Tuesday, March 11, 2025 ,12:30:10 PM :AjaxMethod Action:AjaxMethod Success
+Tuesday, March 11, 2025 ,12:30:16 PM :AllUser BAL:Get User Data Successfully
+Tuesday, March 11, 2025 ,12:30:16 PM :AllUser Action:Get User Data Successfully
+Tuesday, March 11, 2025 ,12:30:16 PM :AjaxMethod Action:AjaxMethod Success
+Tuesday, March 11, 2025 ,12:30:18 PM :RoleList Action:Get RoleList Successfully
+Tuesday, March 11, 2025 ,12:31:10 PM :AllUser BAL:Get User Data Successfully
+Tuesday, March 11, 2025 ,12:31:10 PM :AllUser Action:Get User Data Successfully
+Tuesday, March 11, 2025 ,12:31:10 PM :AjaxMethod Action:AjaxMethod Success
+Tuesday, March 11, 2025 ,12:31:12 PM :RoleList Action:Get RoleList Successfully
+Tuesday, March 11, 2025 ,12:31:48 PM :AddUser Action:Model is Valid
+Tuesday, March 11, 2025 ,12:31:51 PM :AddUser Action:Model is Valid
+Tuesday, March 11, 2025 ,12:32:04 PM :AddUser Action:Insert UserData Successfully
+Tuesday, March 11, 2025 ,12:32:15 PM :AddUser Action:Insert UserData Successfully
+Tuesday, March 11, 2025 ,12:32:21 PM :AllUser BAL:Get User Data Successfully
+Tuesday, March 11, 2025 ,12:32:21 PM :AllUser Action:Get User Data Successfully
+Tuesday, March 11, 2025 ,12:32:21 PM :AjaxMethod Action:AjaxMethod Success
+Tuesday, March 11, 2025 ,3:24:11 PM :Start Application
+Tuesday, March 11, 2025 ,3:24:11 PM :Login Action:Model is valid
+Tuesday, March 11, 2025 ,3:24:13 PM :Login Action:Login Successfully
+Tuesday, March 11, 2025 ,3:24:13 PM :Dashboard Action:Get Soulist Successfully
+Tuesday, March 11, 2025 ,3:24:14 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Tuesday, March 11, 2025 ,3:24:14 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Tuesday, March 11, 2025 ,3:24:17 PM :AllUser BAL:Get User Data Successfully
+Tuesday, March 11, 2025 ,3:24:17 PM :AllUser Action:Get User Data Successfully
+Tuesday, March 11, 2025 ,3:24:18 PM :AjaxMethod Action:AjaxMethod Success
+Tuesday, March 11, 2025 ,3:24:45 PM :EditUserData BAL:Edit UserData Successfully
+Tuesday, March 11, 2025 ,3:24:45 PM :EditUserData Action:Edit UserData Successfully
+Tuesday, March 11, 2025 ,3:24:45 PM :EditUserData Action:Edit UserData Successfully
+Tuesday, March 11, 2025 ,3:24:51 PM :EditUserData BAL:Edit UserData Successfully
+Tuesday, March 11, 2025 ,3:24:51 PM :EditUserData Action:Edit UserData Successfully
+Tuesday, March 11, 2025 ,3:25:00 PM :EditUser BAL:Edit User Successfully 
+Tuesday, March 11, 2025 ,3:25:00 PM :EditUser Action:Edit User Successfully 
+Tuesday, March 11, 2025 ,3:25:00 PM :AllUser BAL:Get User Data Successfully
+Tuesday, March 11, 2025 ,3:25:00 PM :AllUser Action:Get User Data Successfully
+Tuesday, March 11, 2025 ,3:25:00 PM :AjaxMethod Action:AjaxMethod Success
+Tuesday, March 11, 2025 ,6:53:54 PM :Start Application
+Tuesday, March 11, 2025 ,6:53:54 PM :Login BAL:Model is valid
+Tuesday, March 11, 2025 ,6:53:56 PM :Login BAL:Validation Error
+Tuesday, March 11, 2025 ,6:54:10 PM :Start Application
+Tuesday, March 11, 2025 ,6:54:10 PM :Login BAL:Model is valid
+Tuesday, March 11, 2025 ,6:54:11 PM :Login BAL:Login Successfully
+Tuesday, March 11, 2025 ,6:54:16 PM :Start Application
+Tuesday, March 11, 2025 ,6:54:16 PM :Login BAL:Model is valid
+Tuesday, March 11, 2025 ,6:54:16 PM :Login BAL:Login Successfully
+Tuesday, March 11, 2025 ,6:54:21 PM :Start Application
+Tuesday, March 11, 2025 ,6:54:21 PM :Login BAL:Model is valid
+Tuesday, March 11, 2025 ,6:54:21 PM :Login BAL:Login Successfully
+Tuesday, March 11, 2025 ,6:55:51 PM :Start Application
+Tuesday, March 11, 2025 ,6:55:51 PM :Login BAL:Model is valid
+Tuesday, March 11, 2025 ,6:55:52 PM :Login BAL:Login Successfully
+Tuesday, March 11, 2025 ,6:58:35 PM :Start Application
+Tuesday, March 11, 2025 ,6:58:35 PM :Login BAL:Model is valid
+Tuesday, March 11, 2025 ,6:58:37 PM :Login BAL:Login Successfully
+Tuesday, March 11, 2025 ,6:58:37 PM :Dashboard BAL:Get Soulist Successfully
+Tuesday, March 11, 2025 ,6:58:37 PM :Dashboard Action:Get Soulist Successfully
+Tuesday, March 11, 2025 ,6:58:38 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Tuesday, March 11, 2025 ,6:58:38 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Tuesday, March 11, 2025 ,6:58:38 PM :AjaxGateData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Tuesday, March 11, 2025 ,6:58:38 PM :AjaxMethod BAL:Invalid operation. The connection is closed.
+Tuesday, March 11, 2025 ,6:58:38 PM :AjaxProjectData1 BAL:Invalid operation. The connection is closed.
+Tuesday, March 11, 2025 ,6:58:39 PM :AjaxSouData1 BAL:Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'MaterialDbContext'.

@@ -1,0 +1,506 @@
+Wednesday, March 12, 2025 ,11:23:24 AM :Start Application
+Wednesday, March 12, 2025 ,11:23:24 AM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,11:23:26 AM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,11:23:26 AM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:23:26 AM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:23:27 AM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,11:23:27 AM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,11:23:27 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:23:27 AM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,11:23:27 AM :AjaxMethod BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:23:27 AM :AjaxGateData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:23:27 AM :AjaxProjectData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:23:27 AM :AjaxSouData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:23:31 AM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,11:23:33 AM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,11:23:47 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:23:48 AM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:23:49 AM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:23:51 AM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:23:52 AM :AjaxSouData Action:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,11:23:59 AM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,11:28:02 AM :Start Application
+Wednesday, March 12, 2025 ,11:28:02 AM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,11:28:04 AM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,11:28:04 AM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:28:04 AM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:28:05 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:28:05 AM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,11:28:05 AM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,11:28:05 AM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,11:28:05 AM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,11:28:08 AM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,11:28:12 AM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,11:28:33 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:28:33 AM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:28:33 AM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:28:35 AM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:28:36 AM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:28:36 AM :AjaxGateData BAL:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:28:39 AM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,11:30:04 AM :Start Application
+Wednesday, March 12, 2025 ,11:30:04 AM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,11:30:06 AM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,11:30:06 AM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:30:06 AM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:30:06 AM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,11:30:07 AM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,11:30:07 AM :AjaxGateData1 BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:30:07 AM :AjaxMethod BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:30:07 AM :AjaxProjectData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:30:07 AM :AjaxSouData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:30:11 AM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,11:30:13 AM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,11:30:26 AM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:30:26 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:30:29 AM :AjaxGateData BAL:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:30:29 AM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:30:30 AM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,11:30:32 AM :AjaxSouData Action:Cannot implicitly convert type 'System.Collections.Generic.List<<>f__AnonymousType0<System.DateTime,int,string>>' to 'Microsoft.AspNetCore.Mvc.JsonResult'
+Wednesday, March 12, 2025 ,11:32:07 AM :Start Application
+Wednesday, March 12, 2025 ,11:32:07 AM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,11:32:09 AM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,11:32:09 AM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:32:09 AM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:32:10 AM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,11:32:10 AM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,11:32:10 AM :AjaxSouData1 BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:32:11 AM :AjaxMethod BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:32:11 AM :AjaxGateData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:32:11 AM :AjaxProjectData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:32:14 AM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,11:32:16 AM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,11:32:32 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:32:34 AM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:32:34 AM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:32:35 AM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:32:35 AM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:33:03 AM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,11:36:40 AM :Start Application
+Wednesday, March 12, 2025 ,11:36:40 AM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,11:36:42 AM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,11:36:42 AM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:36:42 AM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:36:43 AM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,11:36:43 AM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,11:36:44 AM :AjaxProjectData1 BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:36:44 AM :AjaxMethod BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:36:44 AM :AjaxGateData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:36:44 AM :AjaxSouData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:36:47 AM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,11:36:49 AM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,11:37:03 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:37:05 AM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:37:06 AM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:37:06 AM :AjaxGateData BAL:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:37:06 AM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:37:14 AM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,11:37:20 AM :AjaxSouData Action:Cannot implicitly convert type 'System.Collections.Generic.List<<>f__AnonymousType0<System.DateTime,int,string>>' to 'Microsoft.AspNetCore.Mvc.JsonResult'
+Wednesday, March 12, 2025 ,11:37:46 AM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:37:46 AM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:37:46 AM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,11:37:46 AM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,11:37:46 AM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,11:37:47 AM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,11:37:47 AM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,11:37:47 AM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,11:37:47 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:37:47 AM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:39:42 AM :Start Application
+Wednesday, March 12, 2025 ,11:39:42 AM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,11:39:43 AM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,11:39:43 AM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:39:43 AM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:39:44 AM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,11:39:44 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:39:44 AM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,11:39:44 AM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,11:39:44 AM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,11:39:45 AM :AjaxSouData1 BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:39:45 AM :AjaxMethod BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:39:50 AM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,11:39:52 AM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,11:40:08 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:40:09 AM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:40:09 AM :AjaxGateData BAL:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:40:09 AM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:40:11 AM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:40:11 AM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:40:28 AM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,11:40:49 AM :AjaxSouData Action:Cannot implicitly convert type 'System.Threading.Tasks.Task<System.Collections.Generic.List<<>f__AnonymousType0<System.DateTime,int,string>>>' to 'Microsoft.AspNetCore.Mvc.JsonResult'
+Wednesday, March 12, 2025 ,11:46:20 AM :Start Application
+Wednesday, March 12, 2025 ,11:46:20 AM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,11:46:21 AM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,11:46:21 AM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:46:21 AM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:46:22 AM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,11:46:22 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:46:22 AM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,11:46:23 AM :AjaxMethod BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:46:23 AM :AjaxProjectData1 BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:46:25 AM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,11:46:27 AM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,11:46:39 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:46:40 AM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:46:40 AM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:46:41 AM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:46:42 AM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:46:42 AM :AjaxGateData BAL:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:46:49 AM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,11:48:08 AM :Start Application
+Wednesday, March 12, 2025 ,11:48:08 AM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,11:48:10 AM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,11:48:10 AM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:48:10 AM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:48:11 AM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,11:48:11 AM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,11:48:11 AM :AjaxSouData1 BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:48:12 AM :AjaxProjectData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:48:12 AM :AjaxGateData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:48:12 AM :AjaxMethod BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:48:14 AM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,11:48:16 AM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,11:48:28 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:48:29 AM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:48:31 AM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:48:32 AM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:48:32 AM :AjaxGateData BAL:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:48:32 AM :AjaxMethod BAL:A task was canceled.
+Wednesday, March 12, 2025 ,11:48:45 AM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,11:54:06 AM :Start Application
+Wednesday, March 12, 2025 ,11:54:06 AM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,11:54:07 AM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,11:54:08 AM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:54:08 AM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:54:08 AM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,11:54:08 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:54:09 AM :AjaxMethod BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:54:09 AM :AjaxGateData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:54:09 AM :AjaxProjectData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:54:09 AM :AjaxSouData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,11:54:13 AM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,11:54:15 AM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,11:54:32 AM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:54:32 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:54:32 AM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:54:32 AM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:54:32 AM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:54:44 AM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,11:55:31 AM :Start Application
+Wednesday, March 12, 2025 ,11:55:31 AM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,11:55:33 AM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,11:55:33 AM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:55:33 AM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:55:34 AM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,11:55:34 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:55:34 AM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,11:55:34 AM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:55:35 AM :AjaxSouData1 BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:55:35 AM :AjaxProjectData1 BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:55:37 AM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,11:55:39 AM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,11:55:53 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:55:54 AM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:55:54 AM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:55:55 AM :AjaxGateData BAL:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:55:56 AM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:55:57 AM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:55:59 AM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,11:57:36 AM :Start Application
+Wednesday, March 12, 2025 ,11:57:36 AM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,11:57:37 AM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,11:57:37 AM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:57:37 AM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,11:57:38 AM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,11:57:38 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:57:39 AM :AjaxGateData1 BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:57:39 AM :AjaxSouData1 BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:57:39 AM :AjaxProjectData1 BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,11:57:39 AM :AjaxMethod BAL:Cannot access a disposed context instance. A common cause of this error is disposing a context instance that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling 'Dispose' on the context instance, or wrapping it in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'MaterialDbContext'.
+Wednesday, March 12, 2025 ,11:57:41 AM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,11:57:43 AM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,11:57:57 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:57:58 AM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:57:58 AM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:58:00 AM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:58:00 AM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:58:00 AM :AjaxGateData BAL:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:58:01 AM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,11:58:55 AM :AjaxSouData Action:Cannot implicitly convert type 'System.Collections.Generic.List<<>f__AnonymousType0<System.DateTime,int,string>>' to 'string'
+Wednesday, March 12, 2025 ,11:59:03 AM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:59:04 AM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:59:04 AM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,11:59:05 AM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,11:59:07 AM :AjaxGateData BAL:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,11:59:07 AM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:00:16 PM :Start Application
+Wednesday, March 12, 2025 ,12:00:16 PM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,12:00:18 PM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,12:00:18 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:00:18 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:00:18 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:00:19 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:00:19 PM :AjaxGateData1 BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,12:00:19 PM :AjaxMethod BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,12:00:19 PM :AjaxProjectData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,12:00:19 PM :AjaxSouData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,12:00:22 PM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,12:00:24 PM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,12:00:35 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:00:36 PM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,12:00:36 PM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,12:00:39 PM :AjaxGateData BAL:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,12:00:39 PM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,12:00:39 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:00:40 PM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,12:17:14 PM :Start Application
+Wednesday, March 12, 2025 ,12:17:14 PM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,12:17:16 PM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,12:17:16 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:17:16 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:17:17 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:17:17 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:17:18 PM :AjaxSouData1 BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,12:17:18 PM :AjaxGateData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is open.
+Wednesday, March 12, 2025 ,12:17:18 PM :AjaxMethod BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,12:17:20 PM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,12:17:23 PM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,12:17:40 PM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,12:17:41 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:17:51 PM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,12:17:52 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:17:52 PM :AjaxGateData BAL:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,12:17:52 PM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,12:17:53 PM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,12:18:03 PM :AjaxSouData Action:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,12:18:09 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:18:09 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:18:10 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:18:10 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:18:10 PM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:18:10 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:18:10 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:18:10 PM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:18:10 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:18:10 PM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:19:32 PM :Start Application
+Wednesday, March 12, 2025 ,12:19:32 PM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,12:19:34 PM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,12:19:34 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:19:34 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:19:35 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:19:35 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:19:35 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:19:35 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:19:35 PM :AjaxProjectData1 BAL:Invalid operation. The connection is closed.
+Wednesday, March 12, 2025 ,12:19:36 PM :AjaxSouData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,12:19:36 PM :AjaxGateData1 BAL:BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+Wednesday, March 12, 2025 ,12:22:24 PM :Start Application
+Wednesday, March 12, 2025 ,12:22:24 PM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,12:22:25 PM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,12:22:26 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:22:26 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:22:26 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:22:27 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:22:27 PM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:22:27 PM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:22:27 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:22:30 PM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,12:22:32 PM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,12:29:16 PM :Start Application
+Wednesday, March 12, 2025 ,12:29:16 PM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,12:29:17 PM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,12:29:17 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:29:17 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:29:18 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:29:18 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:29:18 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:29:18 PM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:29:18 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:29:21 PM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,12:29:23 PM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,12:29:37 PM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,12:29:37 PM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,12:29:37 PM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,12:29:37 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:29:37 PM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,12:29:37 PM :AjaxGateData BAL:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,12:29:37 PM :AjaxSouData Action:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,12:29:48 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:29:48 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:29:48 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:29:48 PM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:29:48 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:29:48 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:29:48 PM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:29:48 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:29:48 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:29:48 PM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:31:40 PM :Start Application
+Wednesday, March 12, 2025 ,12:31:40 PM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,12:31:41 PM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,12:31:41 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:31:41 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:31:42 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:31:42 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:31:42 PM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:31:43 PM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:31:43 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:31:43 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:31:43 PM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:31:47 PM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,12:31:49 PM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,12:32:04 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:32:04 PM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,12:32:04 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:32:04 PM :AjaxGateData BAL:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,12:32:04 PM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,12:32:04 PM :AjaxProjectData Action:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,12:32:04 PM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,12:32:04 PM :AjaxSouData Action:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,12:36:33 PM :Start Application
+Wednesday, March 12, 2025 ,12:36:33 PM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,12:36:35 PM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,12:36:35 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:36:35 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:36:36 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:36:36 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:36:36 PM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:36:36 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:36:36 PM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:36:36 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:36:36 PM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:36:36 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:36:42 PM :AjaxMethod_CascadingList BAL:Get Projectlist Successfully
+Wednesday, March 12, 2025 ,12:36:44 PM :AjaxMethod_CascadingList BAL:Get Gatelist Successfully
+Wednesday, March 12, 2025 ,12:36:55 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:36:55 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:36:55 PM :AjaxProjectData BAL:Get AjaxProjectData Successfully
+Wednesday, March 12, 2025 ,12:36:55 PM :AjaxSouData BAL:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,12:36:55 PM :AjaxSouData Action:Get AjaxSouData Successfully
+Wednesday, March 12, 2025 ,12:37:01 PM :AjaxGateData BAL:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,12:37:01 PM :AjaxGateData Action:Get AjaxGateData Successfully
+Wednesday, March 12, 2025 ,12:37:06 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:37:06 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:37:06 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:37:06 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:37:06 PM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:37:06 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:37:06 PM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:37:06 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:37:06 PM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:37:06 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:39:21 PM :Start Application
+Wednesday, March 12, 2025 ,12:39:21 PM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,12:39:23 PM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,12:39:23 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:39:23 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:39:24 PM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:39:24 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:39:24 PM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:39:24 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:39:24 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:39:24 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:39:24 PM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:39:24 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:39:42 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:39:42 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:39:42 PM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:39:42 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:39:42 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:39:42 PM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:39:42 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:39:42 PM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:39:42 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:40:05 PM :Start Application
+Wednesday, March 12, 2025 ,12:40:05 PM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,12:40:06 PM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,12:40:06 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:40:06 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:40:07 PM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:40:07 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:40:07 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:40:07 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:40:07 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:41:02 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:41:02 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:41:04 PM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:41:04 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:41:04 PM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:41:04 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:41:04 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:41:04 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:41:04 PM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:41:04 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:41:26 PM :Start Application
+Wednesday, March 12, 2025 ,12:41:26 PM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,12:41:27 PM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,12:41:27 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:41:27 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:41:28 PM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:41:28 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:41:28 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:41:28 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:41:28 PM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:41:28 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:41:28 PM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:41:28 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:46:28 PM :Start Application
+Wednesday, March 12, 2025 ,12:46:28 PM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,12:46:30 PM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,12:46:30 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:46:30 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:46:31 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:46:31 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:46:31 PM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:46:31 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:46:31 PM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:46:31 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:46:31 PM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:46:31 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:46:36 PM :AllUser BAL:Get User Data Successfully
+Wednesday, March 12, 2025 ,12:46:36 PM :AllUser Action:Get User Data Successfully
+Wednesday, March 12, 2025 ,12:46:37 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:46:37 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:46:39 PM :RoleList BAL:Get RoleList Successfully
+Wednesday, March 12, 2025 ,12:46:39 PM :RoleList Action:Get RoleList Successfully
+Wednesday, March 12, 2025 ,12:47:03 PM :AllProjects BAL:Get Projects Successfully
+Wednesday, March 12, 2025 ,12:47:03 PM :AllProjects Action:Get Projects Successfully
+Wednesday, March 12, 2025 ,12:47:04 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:47:04 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:47:06 PM :GateList BAL:Get GateList Successfully
+Wednesday, March 12, 2025 ,12:47:06 PM :GateList Action:Get GateList Successfully
+Wednesday, March 12, 2025 ,12:47:12 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:47:12 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,12:47:12 PM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:47:12 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,12:47:12 PM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:47:12 PM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:47:12 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,12:47:12 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,12:47:12 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:47:12 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:49:11 PM :AllUser BAL:Get User Data Successfully
+Wednesday, March 12, 2025 ,12:49:11 PM :AllUser Action:Get User Data Successfully
+Wednesday, March 12, 2025 ,12:49:11 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:49:11 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:49:13 PM :RoleList BAL:Get RoleList Successfully
+Wednesday, March 12, 2025 ,12:49:13 PM :RoleList Action:Get RoleList Successfully
+Wednesday, March 12, 2025 ,12:49:19 PM :AllUser BAL:Get User Data Successfully
+Wednesday, March 12, 2025 ,12:49:19 PM :AllUser Action:Get User Data Successfully
+Wednesday, March 12, 2025 ,12:49:19 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,12:49:19 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,1:01:04 PM :Start Application
+Wednesday, March 12, 2025 ,1:01:04 PM :Login BAL:Model is valid
+Wednesday, March 12, 2025 ,1:01:06 PM :Login BAL:Login Successfully
+Wednesday, March 12, 2025 ,1:01:06 PM :Dashboard BAL:Get Soulist Successfully
+Wednesday, March 12, 2025 ,1:01:06 PM :Dashboard Action:Get Soulist Successfully
+Wednesday, March 12, 2025 ,1:01:07 PM :AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,1:01:07 PM :AjaxProjectData1 Action:Get AjaxProjectData1 Successfully
+Wednesday, March 12, 2025 ,1:01:07 PM :AjaxMethod BAL:AjaxMethod Success
+Wednesday, March 12, 2025 ,1:01:07 PM :AjaxMethod Action:AjaxMethod Success
+Wednesday, March 12, 2025 ,1:01:07 PM :AjaxSouData1 BAL:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,1:01:07 PM :AjaxSouData1 Action:Get AjaxSouData1 Successfully
+Wednesday, March 12, 2025 ,1:01:07 PM :AjaxGateData1 BAL:Get AjaxGateData1 Successfully
+Wednesday, March 12, 2025 ,1:01:07 PM :AjaxGateData1 Action:Get AjaxGateData1 Successfully
