@@ -25,6 +25,8 @@ namespace MaterialGatePassTackerAPI.Controllers
         private readonly IAuthService _authService;
         private readonly AuthBusinessLogicClass _businessClass;
        private readonly string _logFile;
+     private readonly IConfiguration _configuration;
+
 
 
  public AuthController(IAuthService authService, AuthBusinessLogicClass authBusinessLogic, IConfiguration configuration)
