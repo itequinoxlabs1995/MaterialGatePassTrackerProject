@@ -15,7 +15,8 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("myconstring");
 
 builder.Services.AddDbContext<MaterialDbContext>(options => options.UseSqlServer(connectionString));
-
+builder.Services.AddScoped<HomeBusinessLogicClass>();
+builder.Services.AddScoped<AuthBusinessLogicClass>();
 //End DB connection code
 
 // Adding Authentication
