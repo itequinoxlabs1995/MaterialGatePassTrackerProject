@@ -24,14 +24,18 @@ namespace MaterialGatePassTackerAPI.Controllers
     {
         private readonly IAuthService _authService;
         private readonly AuthBusinessLogicClass _businessClass;
+       private readonly string _logFile;
 
- public AuthController(IAuthService authService, AuthBusinessLogicClass authBusinessLogic)
+
+ public AuthController(IAuthService authService, AuthBusinessLogicClass authBusinessLogic, IConfiguration configuration,)
 {
      _authService = authService;
     _businessClass = authBusinessLogic;
+    _logFile = configuration["Logging:LogFilePath"].ToString();
+
 }
 
-         [HttpPost]
+       [HttpPost]
  [Route("Login")]
  public async Task<IActionResult> Login([FromBody] Login model)
  {
@@ -41,10 +45,12 @@ namespace MaterialGatePassTackerAPI.Controllers
          if (ModelState.IsValid)
          {
              user= _businessClass.Login(model);
-             
+             LogWriterClass.LogWrite("Login Action:Login Successfully", _logFile);
+
          }
          else
          {
+             LogWriterClass.LogWrite("Login Action:Please Enter Valid Username and Password", _logFile);
              return Ok(new
              { Status = "Error", Message = "Please Enter Valid Username and Password" }
              );
@@ -107,6 +113,54 @@ namespace MaterialGatePassTackerAPI.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, $"Error: {ex.Message}");
+            }
+        }
+    }
+    public class LogWriterClass
+    {
+        private static string m_exePath = string.Empty;
+        public static void LogWrite(string logMessage, string path)
+        {
+            // m_exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            m_exePath = path;
+            string fullpath = m_exePath + "\\" + "log_" + DateTime.Now.ToString("dd-MMM-yyyy") + ".txt";
+
+            if (!File.Exists(fullpath))
+            {
+                File.Create(fullpath);
+            }
+
+            try
+            {
+
+                FileStream fs = new FileStream(fullpath, FileMode.Append);
+
+                using (StreamWriter w = new StreamWriter(fs))
+                    AppendLog(logMessage, w);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                //AppendLog(ex.ToString());
+            }
+
+        }
+
+        private static void AppendLog(string logMessage, TextWriter txtWriter)
+        {
+            try
+            {
+                // txtWriter.Write("Log Start : ");
+                // txtWriter.WriteLine("{0} {1}", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString());
+                //txtWriter.WriteLine("  :");
+                txtWriter.WriteLine("{0},{1}", DateTime.Now.ToLongDateString() + " ", DateTime.Now.ToLongTimeString() + " :" + logMessage);
+                // txtWriter.WriteLine("-------------------------------");
+            }
+            catch (Exception ex)
+            {
+                txtWriter.Write(ex.Message);
             }
         }
     }
