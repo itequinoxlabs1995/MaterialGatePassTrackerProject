@@ -27,6 +27,8 @@ namespace MaterialGatePassTackerAPI.Controllers
        private readonly string _logFile;
      private readonly IConfiguration _configuration;
 
+     
+
 
 
  public AuthController(IAuthService authService, AuthBusinessLogicClass authBusinessLogic, IConfiguration configuration)
@@ -37,39 +39,39 @@ namespace MaterialGatePassTackerAPI.Controllers
 
 }
 
-       [HttpPost]
- [Route("Login")]
- public async Task<IActionResult> Login([FromBody] Login model)
- {
-    var user = (dynamic)null;
-     try
-     {
-         if (ModelState.IsValid)
-         {
-             user= _businessClass.Login(model);
-             LogWriterClass.LogWrite("Login Action:Login Successfully", _logFile);
+        [HttpPost]
+        [Route("Login")]
+        public async Task<IActionResult> Login([FromBody] Login model)
+        {
+           var user = (dynamic)null;
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    user= _businessClass.Login(model);
+                    LogWriterClass.LogWrite("Login Action:Login Successfully", _logFile);
 
-         }
-         else
-         {
-             LogWriterClass.LogWrite("Login Action:Please Enter Valid Username and Password", _logFile);
-             return Ok(new
-             { Status = "Error", Message = "Please Enter Valid Username and Password" }
-             );
+                }
+                else
+                {
+                    LogWriterClass.LogWrite("Login Action:Please Enter Valid Username and Password", _logFile);
+                    return Ok(new
+                    { Status = "Error", Message = "Please Enter Valid Username and Password" }
+                    );
 
-         }
+                }
 
-       
+              
 
-     }
-     catch (Exception exc)
-     {
-         exc.Message.ToString();
-     }
+            }
+            catch (Exception exc)
+            {
+                exc.Message.ToString();
+            }
 
-     return Ok(user);
+            return Ok(user);
 
- }
+        }
         [HttpPost]
         [Route("GatePassEntry")]
         public async Task<IActionResult> GatePassEntry([FromBody] T_Gate_Pass request, [FromQuery] List<string> filePaths)
