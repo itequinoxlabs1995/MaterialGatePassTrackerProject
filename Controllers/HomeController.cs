@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.FileProviders;
 using System;
 using System.Diagnostics;
 using System.Reflection;
+using System.Security.Cryptography.Xml;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 
@@ -53,12 +55,19 @@ namespace MaterialGatePassTracker.Controllers
         {
             return View();
         }
-         [HttpGet]
- public IActionResult Report()
- {
-     return RedirectToAction("Index", "Reporting");
 
- }
+        [HttpGet]
+       public IActionResult Logout()
+        {
+            return RedirectToAction("index");
+        }
+
+        [HttpGet]
+        public IActionResult Report()
+        {
+            return RedirectToAction("Index", "Reporting");
+
+        }
         [HttpGet]
         public IActionResult AllUsers()
         {
@@ -130,15 +139,18 @@ namespace MaterialGatePassTracker.Controllers
 
                     newList = _businessClass.AddUser(userModel);
 
-                    LogWriterClass.LogWrite("AddUser Action:Insert UserData Successfully", _logFile);                   
+                    LogWriterClass.LogWrite("AddUser Action:Insert UserData Successfully", _logFile);
                     //for list return
+                    return RedirectToAction("AllUsers", newList);
 
                 }
                 else
                 {
+                    TempData["message"] = "All field is required";
+                   // return PartialView("AddUser", userModel);
 
-                    return PartialView("AddUser", userModel);
-                    //  return PartialView("AddUser", userModel);
+                    //return PartialView("AddUser", userModel);
+                     return RedirectToAction("AllUsers");
 
                 }
 
@@ -148,10 +160,9 @@ namespace MaterialGatePassTracker.Controllers
                 exc.Message.ToString();
                 LogWriterClass.LogWrite("AddUser Action:" + exc.Message.ToString(), _logFile);
             }
-            return RedirectToAction("AllUsers", newList);
             //return PartialView("AddUser", userModel);
 
-            // return RedirectToAction("AllUsers");
+             return RedirectToAction("AllUsers");
 
         }
 
@@ -410,22 +421,31 @@ namespace MaterialGatePassTracker.Controllers
         {
             return View();
         }
-        public IActionResult Dashboard()
+        public IActionResult Dashboard()       
         {
+            string user = DecodeFrom64(HttpContext.Request.Query["user"].ToString());
             IEnumerable<SelectListItem> Soulist = null;
             T_Gate_Pass t_Gate_Pass = new();
-            try
-            {
 
-                t_Gate_Pass = _businessClass.Dashboard();
-                LogWriterClass.LogWrite("Dashboard Action:Get Soulist Successfully", _logFile);
+            if (user == "True")
+            {               
+                try
+                {
+
+                    t_Gate_Pass = _businessClass.Dashboard();
+                    LogWriterClass.LogWrite("Dashboard Action:Get Soulist Successfully", _logFile);
+
+                }
+                catch (Exception exc)
+                {
+                    exc.Message.ToString();
+                    LogWriterClass.LogWrite("Dashboard Action:" + exc.Message.ToString(), _logFile);
+                }
 
             }
-            catch (Exception exc)
+            else
             {
-                exc.Message.ToString();
-                LogWriterClass.LogWrite("Dashboard Action:" + exc.Message.ToString(), _logFile);
-
+                return RedirectToAction("index");
             }
 
             return View(t_Gate_Pass);
@@ -625,7 +645,20 @@ namespace MaterialGatePassTracker.Controllers
                 if (ModelState.IsValid)
                 {
                    var model1 = _businessClass.Index(model);
-                    return RedirectToAction("Dashboard");
+                    string userency = ""+model1+"";
+                    //bool user;
+                    if (model1 == false)
+                    {
+                        LogWriterClass.LogWrite("Login Action:Wrong User Details", _logFile);
+                        TempData["message"] = "Invalid User Name or Password";
+                        return View();
+
+                    }
+                    else
+                    {
+                        userency = EncodePasswordToBase64(userency);
+                        return RedirectToAction("Dashboard", new { user = userency });
+                    }
                 }
                 else
                 {
@@ -639,10 +672,11 @@ namespace MaterialGatePassTracker.Controllers
             {
                 exc.Message.ToString();
                 LogWriterClass.LogWrite("Login Action:" + exc.Message.ToString(), _logFile);
+                return RedirectToAction("index");
 
 
             }
-            return View(model);
+          return View();
 
         }
 
