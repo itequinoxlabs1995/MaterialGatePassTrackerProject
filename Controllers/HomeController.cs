@@ -53,6 +53,12 @@ namespace MaterialGatePassTracker.Controllers
         {
             return View();
         }
+         [HttpGet]
+ public IActionResult Report()
+ {
+     return RedirectToAction("Index", "Reporting");
+
+ }
         [HttpGet]
         public IActionResult AllUsers()
         {
