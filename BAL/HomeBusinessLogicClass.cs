@@ -1,9 +1,11 @@
 using MaterialGatePassTacker;
 using MaterialGatePassTacker.Models;
 using MaterialGatePassTracker.Controllers;
+using MaterialGatePassTracker.DAL;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using NuGet.Common;
 using System.Net;
 
@@ -18,37 +20,22 @@ namespace MaterialGatePassTracker.BAL
 
     public class HomeBusinessLogicClass : IHomeBusinessLogicClass
     {
-        private readonly MaterialDbContext _materialDbContext;
+        private readonly HomeDataAccessLayer _DataAccessClass;
         private readonly string _logFile;
 
-        public HomeBusinessLogicClass(MaterialDbContext materialDbContext, IConfiguration config)
+        public HomeBusinessLogicClass(HomeDataAccessLayer homeDataAccess, IConfiguration config)
         {
-            _materialDbContext = materialDbContext;
             _logFile = config["Logging:LogFilePath"].ToString();
+            _DataAccessClass = homeDataAccess;
 
         }
-        /* public async Task<IEnumerable<D_User>> GetUsersData()
-         {
-             return await _materialDbContext.Users.ToListAsync();
-         }
-         */
 
         public IEnumerable<D_User> AllUsers()
         {
             IEnumerable<D_User> newList = null;
             try
             {
-                newList = _materialDbContext.Users.Where(o => o.IsActive == true).ToList();
-                /*foreach (var item in _materialDbContext.Users.ToList())
-                {
-                    D_User listItem = new D_User();
-                    listItem.User_Name = item.User_Name;
-                    listItem.Password = item.Password;
-                    listItem.Email_ID = item.Email_ID;
-                    listItem.IsActive = item.IsActive;
-                    newList.Add(listItem);
-                }
-                */
+                newList = _DataAccessClass.AllUsers();
                 LogWriterClass.LogWrite("AllUser BAL:Get User Data Successfully", _logFile);
             }
             catch (Exception exc)
@@ -64,7 +51,7 @@ namespace MaterialGatePassTracker.BAL
             IEnumerable<M_Role> newList = null;
             try
             {
-                newList =  _materialDbContext.Roles.ToList();
+                newList = _DataAccessClass.AllRoles();
                 LogWriterClass.LogWrite("AllRoles BAL Method:Get User Roles Successfully", _logFile);
             }
             catch (Exception exc)
@@ -81,7 +68,7 @@ namespace MaterialGatePassTracker.BAL
             IEnumerable<M_Project> newList = null;
             try
             {
-                newList = _materialDbContext.Projects.Where(o => o.IsActive == true).ToList();
+                newList = _DataAccessClass.AllProjects();
                 LogWriterClass.LogWrite("AllProjects BAL:Get Projects Successfully", _logFile);
 
             }
@@ -99,26 +86,14 @@ namespace MaterialGatePassTracker.BAL
 
         public IEnumerable<D_User> AddUser(D_UserViewModel userModel)
         {
+            IEnumerable<D_User> newList = null;
 
             try
             {
-                if (userModel != null)
-                {
+                newList = _DataAccessClass.AddUser(userModel);
 
-                    D_User USertbl = new D_User();
-                    USertbl.User_Name = userModel.d_user.User_Name;
-                    USertbl.Password = EncodePasswordToBase64(userModel.d_user.Password);
-                    USertbl.Email_ID = userModel.d_user.Email_ID;
-                    USertbl.Mobile_No = userModel.d_user.Mobile_No;
-                    USertbl.RID = userModel.d_user.RID;
-                    USertbl.IsActive = userModel.d_user.IsActive;
-                    USertbl.CreatedOn = DateTime.Now;
-                    _materialDbContext.Users.Add(USertbl);
-                    _materialDbContext.SaveChanges();
-                    LogWriterClass.LogWrite("AddUser BAL:Insert UserData Successfully", _logFile);
-                }
-
-           
+                LogWriterClass.LogWrite("AddUser BAL:Insert UserData Successfully", _logFile);
+                
             }
             catch (Exception exc)
             {
@@ -126,31 +101,20 @@ namespace MaterialGatePassTracker.BAL
                 LogWriterClass.LogWrite("AddUser BAL:" + exc.Message.ToString(), _logFile);
             }
 
-            IEnumerable<D_User> newList = _materialDbContext.Users.ToList();
             return newList;
         }
 
 
         public IEnumerable<M_Role> AddRole(M_RoleViewModel userModel)
         {
+            IEnumerable<M_Role> newList = null;
             try
             {
-                if (userModel != null)
-                {
 
-                    LogWriterClass.LogWrite("AddRole BAL:Model is Valid", _logFile);
-
-                    M_Role USertbl = new M_Role();
-                    USertbl.Role_Name = userModel.m_Role.Role_Name;
-                    USertbl.Role_Description = userModel.m_Role.Role_Description;
-                    USertbl.CreatedOn = DateTime.Now;
-                    _materialDbContext.Roles.Add(USertbl);
-                    _materialDbContext.SaveChanges();
-                    LogWriterClass.LogWrite("AddRole BAL:Insert Role Successfully ", _logFile);
+                newList = _DataAccessClass.AddRole(userModel);
+                LogWriterClass.LogWrite("AddRole BAL:Insert Role Successfully ", _logFile);
                     //for list return
 
-
-                }
 
             }
             catch (Exception exc)
@@ -159,32 +123,20 @@ namespace MaterialGatePassTracker.BAL
                 LogWriterClass.LogWrite("AddRole BAL:" + exc.Message.ToString(), _logFile);
 
             }
-            IEnumerable<M_Role> newList = _materialDbContext.Roles.ToList();
             return  newList;
         }
 
 
         public IEnumerable<M_Project> AddProject(M_ProjectViewModel userModel)
         {
+            IEnumerable<M_Project> newList = null;
             try
             {
-                if (userModel != null)
-                {
-                    LogWriterClass.LogWrite("AddProject BAL:Model is Valid", _logFile);
-                    M_Project USertbl = new M_Project();
-                    USertbl.Project_Name = userModel.m_Project.Project_Name;
-                    USertbl.Project_Description = userModel.m_Project.Project_Description;
-                    USertbl.GID = userModel.m_Project.GID;
-                    USertbl.IsActive = userModel.m_Project.IsActive;
-                    USertbl.CreatedOn = DateTime.Now;
-                    _materialDbContext.Projects.Add(USertbl);
-                    _materialDbContext.SaveChanges();
-                    LogWriterClass.LogWrite("AddProject BAL:Insert Project Successfully ", _logFile);
+                newList = _DataAccessClass.AddProject(userModel);
+                LogWriterClass.LogWrite("AddProject BAL:Insert Project Successfully ", _logFile);
 
-                    //for list return
+                 //for list return
 
-                }
-                
             }
             catch (Exception exc)
             {
@@ -192,7 +144,6 @@ namespace MaterialGatePassTracker.BAL
                 LogWriterClass.LogWrite("AddProject BAL:" + exc.Message.ToString(), _logFile);
 
             }
-            IEnumerable<M_Project> newList = _materialDbContext.Projects.ToList();
             return newList;
 
 
@@ -201,22 +152,12 @@ namespace MaterialGatePassTracker.BAL
 
         public IEnumerable<D_User> EditUser(D_UserViewModel model) 
         {
-            D_User USertbl = new D_User();
+            IEnumerable<D_User> newList= null;
             try
             {
-                USertbl = _materialDbContext.Users.SingleOrDefault(b => b.UID == model.d_user1.UID);
-                if (USertbl != null)
-                {
-                    USertbl.User_Name = model.d_user1.User_Name;
-                    USertbl.Password = EncodePasswordToBase64(model.d_user1.Password);
-                    USertbl.Email_ID = model.d_user1.Email_ID;
-                    USertbl.Mobile_No = model.d_user1.Mobile_No;
-                    USertbl.IsActive = model.d_user1.IsActive;
-                    USertbl.ModifiedOn = DateTime.Now;
-                    _materialDbContext.SaveChanges();
-                    LogWriterClass.LogWrite("EditUser BAL:Edit User Successfully ", _logFile);
-
-                }
+                newList = _DataAccessClass.EditUser(model);
+                LogWriterClass.LogWrite("EditUser BAL:Edit User Successfully ", _logFile);
+                
             }
             catch (Exception exc)
             {
@@ -225,7 +166,6 @@ namespace MaterialGatePassTracker.BAL
 
             }
 
-            IEnumerable<D_User> newList = _materialDbContext.Users.ToList();
             return newList;
 
         }
@@ -233,21 +173,13 @@ namespace MaterialGatePassTracker.BAL
 
         public IEnumerable<M_Project> EditProject(M_ProjectViewModel model)
         {
-            M_Project USertbl = new M_Project();
+            IEnumerable<M_Project> newList= null;
             try
             {
-                USertbl = _materialDbContext.Projects.SingleOrDefault(b => b.PID == model.m_Project1.PID);
-                if (USertbl != null)
-                {
-                    USertbl.Project_Name = model.m_Project1.Project_Name;
-                    USertbl.Project_Description = model.m_Project1.Project_Description;
-                    USertbl.GID = model.m_Project1.GID;
-                    USertbl.IsActive = model.m_Project1.IsActive;
-                    USertbl.ModifiedOn = DateTime.Now;
-                    _materialDbContext.SaveChanges();
-                    LogWriterClass.LogWrite("EditProject BAL:Edit Project Successfully ", _logFile);
-
-                }
+            
+              newList = _DataAccessClass.EditProject(model);
+              LogWriterClass.LogWrite("EditProject BAL:Edit Project Successfully ", _logFile);
+               
             }
             catch (Exception exc)
             {
@@ -256,7 +188,6 @@ namespace MaterialGatePassTracker.BAL
 
             }
 
-            IEnumerable<M_Project> newList = _materialDbContext.Projects.ToList();
             return newList;
 
         }
@@ -269,15 +200,7 @@ namespace MaterialGatePassTracker.BAL
 
             try
             {
-                model.d_user1 = _materialDbContext.Users.SingleOrDefault(mytable => mytable.UID == ID);
-                model.Rolelist = (from Table in _materialDbContext.Roles
-                                  select new SelectListItem
-                                  {
-                                      Selected = true,
-                                      Text = Table.Role_Name,
-                                      Value = Table.RID.ToString()
-                                  }).ToList();
-
+                model = _DataAccessClass.EditUserData(ID);
                 LogWriterClass.LogWrite("EditUserData BAL:Edit UserData Successfully", _logFile);
 
             }
@@ -296,14 +219,7 @@ namespace MaterialGatePassTracker.BAL
             M_ProjectViewModel model = new M_ProjectViewModel();
             try
             {
-                model.m_Project1 = _materialDbContext.Projects.SingleOrDefault(mytable => mytable.PID == ID);
-                model.Gatelist = (from Table in _materialDbContext.Gates
-                                  select new SelectListItem
-                                  {
-                                      // Selected = true,
-                                      Text = Table.Gate_Location,
-                                      Value = Table.GID.ToString()
-                                  }).ToList();
+                model = _DataAccessClass.EditProjectData(ID);
                 LogWriterClass.LogWrite("EditProjectData BAL:Edit ProjectData Successfully", _logFile);
 
             }
@@ -325,12 +241,7 @@ namespace MaterialGatePassTracker.BAL
 
             try
             {
-                model.Rolelist = (from Table in _materialDbContext.Roles
-                                  select new SelectListItem
-                                  {
-                                      Text = Table.Role_Name,
-                                      Value = Table.RID.ToString()
-                                  }).ToList();
+                model = _DataAccessClass.RoleList();
                 LogWriterClass.LogWrite("RoleList BAL:Get RoleList Successfully", _logFile);
 
             }
@@ -350,13 +261,7 @@ namespace MaterialGatePassTracker.BAL
             M_Gate model = new M_Gate();
             try
             {
-                model.Gatelist = (from Table in _materialDbContext.Gates
-                                  select new SelectListItem
-                                  {
-                                      Text = Table.Gate_Location,
-                                      Value = Table.GID.ToString()
-                                  }).ToList();
-
+                model = _DataAccessClass.GateList();
                 LogWriterClass.LogWrite("GateList BAL:Get GateList Successfully", _logFile);
 
             }
@@ -373,19 +278,13 @@ namespace MaterialGatePassTracker.BAL
 
         public IEnumerable<D_User> DeleteUser(int id)
         {
-            D_User USertbl = new D_User();
+            IEnumerable<D_User> newList = null;
             try
             {
-                USertbl = _materialDbContext.Users.SingleOrDefault(b => b.UID == id);
-                if (USertbl != null)
-                {
-                    USertbl.IsActive = false;
-                    USertbl.ModifiedOn = DateTime.Now;
-                    _materialDbContext.SaveChanges();
+                newList = _DataAccessClass.DeleteUser(id);
+                LogWriterClass.LogWrite("DeleteUser BAL:User details deleted successfully", _logFile);
 
-                    LogWriterClass.LogWrite("DeleteUser BAL:User details deleted successfully", _logFile);
-
-                }
+                
             }
             catch (Exception exc)
             {
@@ -393,26 +292,19 @@ namespace MaterialGatePassTracker.BAL
                 LogWriterClass.LogWrite("DeleteUser BAL:" + exc.Message.ToString(), _logFile);
 
             }
-            IEnumerable<D_User> newList = _materialDbContext.Users.ToList();
             return newList;
         }
 
 
         public IEnumerable<M_Project> DeleteProject(int id)       
         {
+            IEnumerable<M_Project> newList = null;
             try
             {
 
-                M_Project USertbl = new M_Project();
-                USertbl = _materialDbContext.Projects.SingleOrDefault(b => b.PID == id);
-                if (USertbl != null)
-                {
-                    USertbl.IsActive = false;
-                    USertbl.ModifiedOn = DateTime.Now;
-                    _materialDbContext.SaveChanges();
-                    LogWriterClass.LogWrite("DeleteProject BAL:Project details deleted successfully", _logFile);
-
-                }             
+             newList = _DataAccessClass.DeleteProject(id);
+                LogWriterClass.LogWrite("DeleteProject BAL:Project details deleted successfully", _logFile);
+           
             }
 
             catch (Exception exc)
@@ -422,26 +314,16 @@ namespace MaterialGatePassTracker.BAL
 
 
             }
-            IEnumerable<M_Project> newList = _materialDbContext.Projects.ToList();
             return newList;
         }
 
         public T_Gate_Pass Dashboard()
         {
-            IEnumerable<SelectListItem> Soulist = null;
             T_Gate_Pass t_Gate_Pass = new();
             try
             {
-                Soulist = _materialDbContext.SOUs.Select(s => new SelectListItem
-                {
-                    //Selected = false,
-                    Text = s.Sou_code,
-                    Value = s.SOUID.ToString()
-                }).ToList();
 
-
-
-                t_Gate_Pass.Soulist = Soulist ?? [];
+                t_Gate_Pass = _DataAccessClass.Dashboard();
                 LogWriterClass.LogWrite("Dashboard BAL:Get Soulist Successfully", _logFile);
 
             }
@@ -462,40 +344,10 @@ namespace MaterialGatePassTracker.BAL
 
             try
             {
-                switch (type)
-                {
-                    case "SOUID":
-                        model.Projectlist = (from Table in _materialDbContext.Projects
-                                             where Table.SOUID == IDCast
-                                             select new SelectListItem
-                                             {
-                                                 // Selected = false,
-                                                 Text = Table.Project_Name,
-                                                 Value = Table.PID.ToString()
-                                             }).ToList();
 
-                        LogWriterClass.LogWrite("AjaxMethod_CascadingList BAL:Get Projectlist Successfully", _logFile);
+                model = _DataAccessClass.AjaxMethod_CascadingList(type, IDCast);
+                LogWriterClass.LogWrite("AjaxMethod_CascadingList BAL:Get AjaxMethod_CascadingList Successfully", _logFile);
 
-                        break;
-
-
-
-                    case "PID":
-
-                        model.Gatelist = (from Table in _materialDbContext.Gates
-                                          where Table.PID == IDCast
-                                          select new SelectListItem
-                                          {
-                                              // Selected = false,
-                                              Text = Table.Gate_Location,
-                                              Value = Table.GID.ToString()
-                                          }).ToList();
-
-                        LogWriterClass.LogWrite("AjaxMethod_CascadingList BAL:Get Gatelist Successfully", _logFile);
-                        break;
-
-
-                }
             }
             catch (Exception exc)
             {
@@ -513,20 +365,9 @@ namespace MaterialGatePassTracker.BAL
 
             try
             {
-                Task.Run(async () =>
-                {
-                result = await (from Table in _materialDbContext.GatesPasses
-                               where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                               select new GraphData
-                               {
-                                   // Table.GPID,
-                                   Date = Table.CreatedOn.Date,
-                                   Pending = 20,
-                                   Completed = 30
-                                   // Table.Vendor_Name
-                               }).ToListAsync().ConfigureAwait(false);
-            }).GetAwaiter().GetResult();
-            LogWriterClass.LogWrite("AjaxMethod BAL:AjaxMethod Success", _logFile);
+               
+                result = _DataAccessClass.AjaxMethod(StartDate, EndDate);
+                LogWriterClass.LogWrite("AjaxMethod BAL:AjaxMethod Success", _logFile);
 
             }
             catch (Exception exc)
@@ -548,32 +389,8 @@ namespace MaterialGatePassTracker.BAL
 
             try
             {
-                //string getData = null;
-                Task.Run(async () =>
-                {
-                    result = await (from Table in _materialDbContext.SOUs
-                                                    where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                                    && Table.SOUID == Selected_SOU
-                                                    select new 
-                                                    {
-                                                        Date = Table.CreatedOn.Date,
-                                                        data = Table.SOUID,
-                                                        labels = Table.Sou_code
-                                                    }).ToListAsync().ConfigureAwait(false);
-                }).GetAwaiter().GetResult();
                 
-                
-              /*  result = (from Table in _materialDbContext.SOUs
-                                where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                && Table.SOUID == Selected_SOU
-                                select new 
-                                {
-                                    Date = Table.CreatedOn.Date,
-                                    data = Table.SOUID,
-                                    labels = Table.Sou_code
-                                }).ToList();
-              */
-                
+                result = _DataAccessClass.AjaxSouData(StartDate, EndDate, Selected_SOU);
                 LogWriterClass.LogWrite("AjaxSouData BAL:Get AjaxSouData Successfully", _logFile);
 
 
@@ -597,20 +414,9 @@ namespace MaterialGatePassTracker.BAL
 
             try
             {
-                Task.Run(async () =>
-                {
-                    result = await (from Table in _materialDbContext.Projects
-                                where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                && Table.PID == Selected_PID
-                                select new
-                                {
-                                    Date = Table.CreatedOn.Date,
-                                    labels = Table.Project_Name,
-                                    data = Table.GID
-                                }).ToListAsync().ConfigureAwait(false);
-            }).GetAwaiter().GetResult();
 
-            LogWriterClass.LogWrite("AjaxProjectData BAL:Get AjaxProjectData Successfully", _logFile);
+                result = _DataAccessClass.AjaxProjectData(StartDate, EndDate, Selected_PID);
+                LogWriterClass.LogWrite("AjaxProjectData BAL:Get AjaxProjectData Successfully", _logFile);
 
 
             }
@@ -631,19 +437,8 @@ namespace MaterialGatePassTracker.BAL
 
             try
             {
-                Task.Run(async () =>
-                {
-                    result = await (from Table in _materialDbContext.Gates
-                                where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                 && Table.GID == Selected_GID
-                                select new
-                                {
-                                    Date = Table.CreatedOn.Date,
-                                    labels = Table.Gate_Location,
-                                    data = Table.PID
-                                }).ToListAsync().ConfigureAwait(false);
-                }).GetAwaiter().GetResult();
 
+                result = _DataAccessClass.AjaxGateData(StartDate, EndDate, Selected_GID);
                 LogWriterClass.LogWrite("AjaxGateData BAL:Get AjaxGateData Successfully", _logFile);
 
 
@@ -665,18 +460,8 @@ namespace MaterialGatePassTracker.BAL
 
             try
             {
-                Task.Run(async () =>
-                {
-                    result = await (from Table in _materialDbContext.SOUs
-                                where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                // && Table.SOUID == Selected_SOU
-                                select new
-                                {
-                                    Date = Table.CreatedOn.Date,
-                                    data = Table.SOUID,
-                                    labels = Table.Sou_code
-                                }).ToListAsync().ConfigureAwait(false);
-                }).GetAwaiter().GetResult();
+
+                result = _DataAccessClass.AjaxSouData1(StartDate, EndDate);
                 LogWriterClass.LogWrite("AjaxSouData1 BAL:Get AjaxSouData1 Successfully", _logFile);
 
 
@@ -700,19 +485,8 @@ namespace MaterialGatePassTracker.BAL
 
             try
             {
-                Task.Run(async () =>
-                {
-                    result = await (from Table in _materialDbContext.Projects
-                                where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                // && Table.PID == Selected_PID
-                                select new
-                                {
-                                    Date = Table.CreatedOn.Date,
-                                    labels = Table.Project_Name,
-                                    data = Table.GID
-                                }).ToListAsync().ConfigureAwait(false);
-                }).GetAwaiter().GetResult();
 
+                result = _DataAccessClass.AjaxProjectData1(StartDate, EndDate);
                 LogWriterClass.LogWrite("AjaxProjectData1 BAL:Get AjaxProjectData1 Successfully", _logFile);
 
 
@@ -734,19 +508,7 @@ namespace MaterialGatePassTracker.BAL
 
             try
             {
-                Task.Run(async () =>
-                {
-                    result = await (from Table in _materialDbContext.Gates
-                                where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                // && Table.GID == Selected_GID
-                                select new
-                                {
-                                    Date = Table.CreatedOn.Date,
-                                    labels = Table.Gate_Location,
-                                    data = Table.PID
-                                }).ToListAsync().ConfigureAwait(false);
-                }).GetAwaiter().GetResult();
-
+                result = _DataAccessClass.AjaxGateData1(StartDate, EndDate);
                 LogWriterClass.LogWrite("AjaxGateData1 BAL:Get AjaxGateData1 Successfully", _logFile);
 
             }
@@ -761,36 +523,24 @@ namespace MaterialGatePassTracker.BAL
             return result;
         }
 
-        public Login Index(Login model)
+        public dynamic Index(Login model)
         {
-
-            LogWriterClass.LogWrite("Login BAL:Model is valid", _logFile);
-
-
-            string Encypass = EncodePasswordToBase64(model.Password);
-            //  string decpass = DecodeFrom64(Encypass);
-
-            bool Loginuser = _materialDbContext.Users
-                    .FirstOrDefault(u => u.User_Name == model.User_Name
-                                 && u.Password == Encypass) != null;
-            //Db check
-            // if (_materialDbContext.Users.Where(u => u.User_Name == model.User_Name).Any())
-            if (Loginuser == true)
+            var Uservalid = (dynamic)null;
+            try
             {
-                //JWT Token Logic
-                LogWriterClass.LogWrite("Login BAL:Login Successfully", _logFile);
+                Uservalid = _DataAccessClass.Index(model);
+                LogWriterClass.LogWrite("Index BAL: Login Successfully", _logFile);
 
             }
-            else
+            catch (Exception exc)
             {
-                LogWriterClass.LogWrite("Login BAL:Validation Error", _logFile);
-                return model;
+                exc.Message.ToString();
+                LogWriterClass.LogWrite("Index BAL:" + exc.Message.ToString(), _logFile);
+
             }
-            return model;
+
+            return Uservalid;
         }
-
-
-
 
 
         //this function Convert to Encord your Password
@@ -815,7 +565,8 @@ namespace MaterialGatePassTracker.BAL
         private static string m_exePath = string.Empty;
         public static void LogWrite(string logMessage, string path)
         {
-           var filepath =new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory())).Root + $@"";
+            // m_exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var filepath = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory())).Root + $@"";
 
             m_exePath = filepath + path;
             string fullpath = m_exePath + "\\" + "log_" + DateTime.Now.ToString("dd-MMM-yyyy") + ".txt";
