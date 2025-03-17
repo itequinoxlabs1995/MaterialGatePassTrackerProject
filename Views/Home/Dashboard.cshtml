@@ -1,4 +1,4 @@
-﻿@model MaterialGatePassTacker.Models.T_Gate_Pass
+@model MaterialGatePassTacker.Models.T_Gate_Pass
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -252,16 +252,21 @@ margin-left: 752px;background: #3c91e6;
 
                     </div>
                     <div class="d-flex justify-content-between">
-                        <button type="submit" onclick="filterGraph(event)" style="width: 113px;border-radius: 0px;
+                        <button type="submit" id="filter-toggle1" onclick="filterGraph(event)" style="width: 113px;border-radius: 0px;
     padding: 2px;
     margin-top: 54px;
        ">
                             Apply
                         </button>
                         <!--  <button class="btn btn-primary">Apply</button>-->
-                        <button class="btn btn-secondary" style="margin-top: 52px;
-    width: 113px;margin-left: 95px;
-    height: 36px;">
+                        <button class="btn btn-secondary" style="
+margin-left: 95px;
+width: 113px;
+    border-radius: 0px;
+    padding: 2px;
+    margin-top: 54px;
+    height: 27px;
+    ">
                             Clear
                         </button>
                     </div>
@@ -276,11 +281,34 @@ margin-left: 752px;background: #3c91e6;
                     if (filterSection.style.display === 'none') {
                         filterSection.style.display = 'block';
                         filterIcon.innerHTML = "&#9650;";
-                    } else {
+                    } 
+                    else if (filterSection.style.display === 'block') {
+                        filterSection.style.display = 'none';
+                        filterIcon.innerHTML = "&#9660;";
+                    }
+                    else{
                         filterSection.style.display = 'none';
                         filterIcon.innerHTML = "&#9660;";
                     }
                 });
+
+                document.getElementById('filter-toggle1').addEventListener('click', function () {
+                    var filterSection = document.getElementById('filter-section');
+                    var filterIcon = document.getElementById('filter-icon');
+                    if (filterSection.style.display === 'none') {
+                        filterSection.style.display = 'block';
+                        filterIcon.innerHTML = "&#9650;";
+                    }
+                    else if (filterSection.style.display === 'block') {
+                        filterSection.style.display = 'none';
+                        filterIcon.innerHTML = "&#9660;";
+                    }
+                    else {
+                        filterSection.style.display = 'none';
+                        filterIcon.innerHTML = "&#9660;";
+                    }
+                });
+
             </script>
 
             <style>
@@ -1831,6 +1859,10 @@ margin-left: 752px;background: #3c91e6;
                 alert("Please select both start and end dates.");
                 return;
             }
+            
+            
+
+
 
             $.ajax({
                 type: "POST",
@@ -1878,8 +1910,7 @@ margin-left: 752px;background: #3c91e6;
                 }
             });
 
-
-
+            
             //first chart
 
             //first chart
@@ -1977,6 +2008,7 @@ margin-left: 752px;background: #3c91e6;
                         return;
                     }
                     graphData1 = JSON.parse(response);
+                    //document.getElementById('filter-section').style.display = 'none';
 
 
                     console.log("graphData1", graphData1);
@@ -2092,6 +2124,8 @@ margin-left: 752px;background: #3c91e6;
             });
 
 
+           // document.getElementById('filter-section').style.display = 'none';
+            $("#filter-section").hide();
 
 
         }
