@@ -56,6 +56,10 @@ builder.Services.AddScoped<IReportingRepo, ReportingRepo>();
 builder.Services.AddScoped<IReportingService, ReportingService>();
 builder.Services.AddScoped<IEntryDetailsCreationRepo, EntryDetailsCreationRepo>();
 builder.Services.AddScoped<IEntryDetailsCreationService, EntryDetailsCreationService>();
+builder.Services.AddScoped<HomeDataAccessLayer>();
+builder.Services.AddScoped<AuthDataAccessLayer>();
+builder.Services.AddScoped<HomeBusinessLogicClass>();
+builder.Services.AddScoped<AuthBusinessLogicClass>();
 
 var app = builder.Build();
 
