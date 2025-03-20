@@ -52,6 +52,10 @@ builder.Services.AddScoped<IStoreRepo, StoreRepo>();
 builder.Services.AddScoped<IStoreService, StoreService>();
 builder.Services.AddScoped<IAuthRepo, AuthRepo>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IReportingRepo, ReportingRepo>();
+builder.Services.AddScoped<IReportingService, ReportingService>();
+builder.Services.AddScoped<IEntryDetailsCreationRepo, EntryDetailsCreationRepo>();
+builder.Services.AddScoped<IEntryDetailsCreationService, EntryDetailsCreationService>();
 
 var app = builder.Build();
 
