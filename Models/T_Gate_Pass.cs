@@ -10,11 +10,6 @@ namespace MaterialGatePassTacker.Models
     {
         [Key]
         public int GPID { get; set; }
-        [ValidateNever]
-		[NotMapped]
-
-        public string? FilePaths { get; set; }
-
 
         public int PID { get; set; }
 		[ValidateNever]
@@ -61,6 +56,9 @@ namespace MaterialGatePassTacker.Models
        // public bool IsActive { get; set; }
         [ValidateNever]
         public DateTime CreatedOn { get; set; }
+
+        [ValidateNever]
+        public string? FilePaths { get; set; }
 
         [NotMapped]
         [ValidateNever]
