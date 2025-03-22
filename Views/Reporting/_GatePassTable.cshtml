@@ -1,12 +1,34 @@
-﻿@model PaginatedList<T_Gate_Pass>
+@using System.ComponentModel.DataAnnotations.Schema
+@model PaginatedList<T_Gate_Pass>
 @foreach (var item in Model)
 {
     <tr>
         @foreach (var prop in typeof(T_Gate_Pass).GetProperties())
         {
-            if (prop.Name != "GPID" && prop.Name != "PID" && prop.Name != "SID")
+            if (!prop.GetCustomAttributes(typeof(NotMappedAttribute), true).Any() &&
+            prop.Name != "GPID" && prop.Name != "PID" && prop.Name != "GID" && prop.Name != "SID")
             {
-                <td>@(prop.GetValue(item, null) ?? "-")</td>
+                if (prop.Name == "FilePaths")
+                {
+                    <td>
+                        @if (!string.IsNullOrEmpty(prop.GetValue(item)?.ToString()))
+                        {
+                            var filePath = prop.GetValue(item)?.ToString();
+                            var encodedPath = Uri.EscapeDataString(filePath);
+                            <a href="#" onclick="showImageModal('@encodedPath')">
+                                <img src="/images/icon.png" alt="View Image" style="width:24px; height:24px;">
+                            </a>
+                        }
+                        else
+                        {
+                            <span>-</span>
+                        }
+                    </td>
+                }
+                else
+                {
+                    <td>@(prop.GetValue(item, null) ?? "-")</td>
+                }
             }
         }
     </tr>
