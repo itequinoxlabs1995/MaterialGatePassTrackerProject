@@ -91,6 +91,38 @@ namespace MaterialGatePassTracker.Controllers
             }
         }
 
+        [HttpGet("GetImage")]
+        public IActionResult GetImage(string filePath)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(filePath))
+                    return BadRequest("Folder path is required.");
+
+                string encodedPath = filePath;
+                string decodedPath = Uri.UnescapeDataString(encodedPath);
+
+                var imageExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
+                var images = Directory.GetFiles(decodedPath)
+                    .Where(file => imageExtensions.Contains(Path.GetExtension(file).ToLower()))
+                    .Select(file => $"/Uploads/{decodedPath.Replace(@"E:\Uploads\", "").Replace("\\", "/")}/{Path.GetFileName(file)}")
+                    .ToList();
+
+                if (images.Count == 0)
+                    return NotFound("No images found.");
+
+                return Json(images);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error loading images: {ex.Message}");
+            }
+        }
+
+
+
+
+
         private async Task<string> RenderViewToStringAsync(string viewName, object model)
         {
             try
