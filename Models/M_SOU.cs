@@ -13,7 +13,7 @@ namespace MaterialGatePassTacker.Models
         public int PID { get; set; }
         public string? Sou_code { get; set; }
         public DateTime CreatedOn { get; set; }
-        public DateTime ModifiedOn { get; set; }
+        public DateTime? ModifiedOn { get; set; }
         public bool IsActive { get; set; }
 
         public string? Modified_By { get; set; }
