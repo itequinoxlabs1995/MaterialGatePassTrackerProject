@@ -8,6 +8,7 @@ using System.Text;
 using MaterialGatePassTracker.Middleware;
 using MaterialGatePassTracker.DAL;
 using MaterialGatePassTracker.BAL;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -72,11 +73,16 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+var folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Uploads");
+
 app.UseStaticFiles(new StaticFileOptions
 {
-    FileProvider = new PhysicalFileProvider(@"E:\Uploads"),
+    FileProvider = new PhysicalFileProvider(folderPath),
     RequestPath = "/Uploads"
 });
+
+
 
 app.UseRouting();
 

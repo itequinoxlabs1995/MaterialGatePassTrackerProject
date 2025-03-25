@@ -99,13 +99,16 @@ namespace MaterialGatePassTracker.Controllers
                 if (string.IsNullOrEmpty(filePath))
                     return BadRequest("Folder path is required.");
 
-                string encodedPath = filePath;
-                string decodedPath = Uri.UnescapeDataString(encodedPath);
+                string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Uploads");
+                string decodedPath = Uri.UnescapeDataString(filePath);
+
+                if (!Directory.Exists(decodedPath))
+                    return NotFound("Directory does not exist.");
 
                 var imageExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
                 var images = Directory.GetFiles(decodedPath)
                     .Where(file => imageExtensions.Contains(Path.GetExtension(file).ToLower()))
-                    .Select(file => $"/Uploads/{decodedPath.Replace(@"E:\Uploads\", "").Replace("\\", "/")}/{Path.GetFileName(file)}")
+                    .Select(file => $"/Uploads/{Path.GetRelativePath(folderPath, file).Replace("\\", "/")}")
                     .ToList();
 
                 if (images.Count == 0)
@@ -118,6 +121,8 @@ namespace MaterialGatePassTracker.Controllers
                 return StatusCode(500, $"Error loading images: {ex.Message}");
             }
         }
+
+
 
 
 
