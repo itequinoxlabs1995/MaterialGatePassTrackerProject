@@ -14,7 +14,7 @@ namespace MaterialGatePassTracker.Models
         public string? ReassignUser { get; set; }
         public string? ReassignStore { get; set; }
         public DateTime CreatedOn { get; set; }
-        public DateTime ModifiedOn { get; set; }
+        public DateTime? ModifiedOn { get; set; }
         public string? Status { get; set; }
     }
 
