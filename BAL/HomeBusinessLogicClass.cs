@@ -2,6 +2,7 @@ using MaterialGatePassTacker;
 using MaterialGatePassTacker.Models;
 using MaterialGatePassTracker.Controllers;
 using MaterialGatePassTracker.DAL;
+using MaterialGatePassTracker.Middleware;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -338,6 +339,108 @@ namespace MaterialGatePassTracker.BAL
 
         }
 
+        public dynamic TodayCountCompleted()
+        {
+            var TodayCountCompleted = (dynamic)null;
+            try
+            {
+                TodayCountCompleted = _DataAccessClass.TodayCountCompleted();
+
+            }
+            catch (Exception exc)
+            {
+                LogWriterClass.LogWrite("TodayCountCompleted BAL:" + exc.Message.ToString(), _logFile);
+
+            }
+            return TodayCountCompleted;
+
+        }
+
+        public dynamic WeeklyCountCompleted()
+        {
+            var WeeklyCountCompleted = (dynamic)null;
+            try
+            {
+                WeeklyCountCompleted = _DataAccessClass.WeeklyCountCompleted();
+
+            }
+            catch (Exception exc)
+            {
+                LogWriterClass.LogWrite("WeeklyCountCompleted BAL:" + exc.Message.ToString(), _logFile);
+
+            }
+            return WeeklyCountCompleted;
+
+        }
+
+        public dynamic MonthCountCompleted()
+        {
+            var MonthCountCompleted = (dynamic)null;
+            try
+            {
+                MonthCountCompleted = _DataAccessClass.MonthCountCompleted();
+
+            }
+            catch (Exception exc)
+            {
+                LogWriterClass.LogWrite("MonthCountCompleted BAL:" + exc.Message.ToString(), _logFile);
+
+            }
+            return MonthCountCompleted;
+
+        }
+
+        public dynamic TodayCountPending()
+        {
+            var TodayCountPending = (dynamic)null;
+            try
+            {
+                TodayCountPending = _DataAccessClass.TodayCountPending();
+
+            }
+            catch (Exception exc)
+            {
+                LogWriterClass.LogWrite("TodayCountPending BAL:" + exc.Message.ToString(), _logFile);
+
+            }
+            return TodayCountPending;
+
+        }
+
+        public dynamic WeeklyCountPending()
+        {
+            var WeeklyCountPending = (dynamic)null;
+            try
+            {
+                WeeklyCountPending = _DataAccessClass.WeeklyCountPending();
+
+            }
+            catch (Exception exc)
+            {
+                LogWriterClass.LogWrite("WeeklyCountPending BAL:" + exc.Message.ToString(), _logFile);
+
+            }
+            return WeeklyCountPending;
+
+        }
+
+        public dynamic MonthCountPending()
+        {
+            var MonthCountPending = (dynamic)null;
+            try
+            {
+                MonthCountPending = _DataAccessClass.MonthCountPending();
+
+            }
+            catch (Exception exc)
+            {
+                LogWriterClass.LogWrite("MonthCountPending BAL:" + exc.Message.ToString(), _logFile);
+
+            }
+            return MonthCountPending;
+
+        }
+
         public T_Gate_Pass AjaxMethod_CascadingList(string type, int IDCast)
         {
             T_Gate_Pass model = new();
@@ -560,7 +663,7 @@ namespace MaterialGatePassTracker.BAL
         }
         //business class closed
     }
-    public class LogWriterClass
+   /* public class LogWriterClass
     {
         private static string m_exePath = string.Empty;
         public static void LogWrite(string logMessage, string path)
@@ -610,7 +713,7 @@ namespace MaterialGatePassTracker.BAL
             }
         }
     }
-
+    */
     public sealed record GraphData
     {
         public DateTime Date { get; set; }
