@@ -95,6 +95,7 @@ app.UseStaticFiles(new StaticFileOptions
 app.UseRouting();
 
 app.UseMiddleware<AuthorizationMiddleware>();
+app.UseMiddleware<LogWriterClass>();
 
 app.UseAuthorization();
 
