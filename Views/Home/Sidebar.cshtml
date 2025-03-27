@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewData["Title"] = "Sidebar";
 }
 
@@ -563,7 +563,7 @@
         d3.select(window).on('resize', resize);
     </script>-->
 <script src="script.js"></script>
-<script>
+<!--<script>
     // jQuery
     $(document).ready(function () {
         // alert();
@@ -874,78 +874,7 @@
     });
 
 
-    // Static Data Source (Simulating API Data)
-    /*const staticData = [{
-          date: "2025-02-01",
-          value: 10,
-          value1: 30
-       },
-       {
-          date: "2025-02-05",
-          value: 20,
-          value1: 17
-       },
-       {
-          date: "2025-02-10",
-          value: 60,
-          value1: 20
-       },
-       {
-          date: "2025-02-15",
-          value: 25,
-          value1: 14
-       },
-       {
-          date: "2025-02-20",
-          value: 35,
-          value1: 10
-       },
-       {
-          date: "2025-02-21",
-          value: 40,
-          value1: 19
-       },
-    ];
-
-    */
-
-    /*
-    let chart; // To store chart instance
-    function filterGraph(event) {
-       event.preventDefault(); // no auto refresh.
-       populateDates();
-
-       let startDate = document.getElementById("StartDate").value;
-       let endDate = document.getElementById("EndDate").value;
-
-
-       if (!startDate || !endDate) {
-          alert("Please select both start and end dates.");
-          return;
-       }
-
-       $.ajax({
-          type: "POST",
-          url: "/Home/AjaxMethod",
-          data: {
-             StartDate: startDate,
-             EndDate: endDate
-          },
-          dataType: "text",
-          success: function (response) {
-             console.log(response);
-
-             if (response == null || response.length == 0) {
-                return;
-             }
-
-
-           }
-
-       });
-    }
-
-    */
+    
 
     let graphData = [];
 
@@ -1328,9 +1257,9 @@
 
 
     }
+    
 
-
-</script>
+</script>-->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
