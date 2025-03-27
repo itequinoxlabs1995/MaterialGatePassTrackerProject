@@ -15,9 +15,10 @@
                         {
                             var filePath = prop.GetValue(item)?.ToString();
                             var encodedPath = Uri.EscapeDataString(filePath);
-                            <a href="#" onclick="showImageModal('@encodedPath')">
-                                <img src="/images/icon.png" alt="View Image" style="width:24px; height:24px;">
+                            <a href="#" onclick="showImageModal('@encodedPath')" title="View Image">
+                                <img src="~/images/upload-photos.png" alt="View Image" width="24" height="24" />
                             </a>
+
                         }
                         else
                         {
