@@ -1,4 +1,4 @@
-﻿using MaterialGatePassTacker;
+using MaterialGatePassTacker;
 using MaterialGatePassTacker.Models;
 using MaterialGatePassTracker.Controllers;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +11,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.FileProviders;
+using MaterialGatePassTracker.Middleware;
 namespace MaterialGatePassTracker.DAL
 {
     public class AuthDataAccessLayer
@@ -112,7 +113,7 @@ namespace MaterialGatePassTracker.DAL
         }
 
     }
-    public class LogWriterClass
+   /* public class LogWriterClass
     {
         private static string m_exePath = string.Empty;
         public static void LogWrite(string logMessage, string path)
@@ -162,6 +163,6 @@ namespace MaterialGatePassTracker.DAL
             }
         }
     }
-
+    */
 
 }
