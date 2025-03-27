@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
-using System.Data.Entity.Core.Objects;
+//using System.Data.Entity.Core.Objects;
 
 namespace MaterialGatePassTracker.DAL
 {
