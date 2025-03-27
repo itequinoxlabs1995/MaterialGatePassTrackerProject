@@ -74,15 +74,23 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Uploads");
+app.UseStaticFiles();
 
+// Configure the uploads folder path dynamically
+string uploadsFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+
+// Ensure the directory exists
+if (!Directory.Exists(uploadsFolderPath))
+{
+    Directory.CreateDirectory(uploadsFolderPath);
+}
+
+// Serve static files from the uploads folder
 app.UseStaticFiles(new StaticFileOptions
 {
-    FileProvider = new PhysicalFileProvider(folderPath),
+    FileProvider = new PhysicalFileProvider(uploadsFolderPath),
     RequestPath = "/Uploads"
 });
-
-
 
 app.UseRouting();
 
