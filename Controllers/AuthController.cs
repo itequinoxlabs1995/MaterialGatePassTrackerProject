@@ -14,6 +14,8 @@ using System.Net;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using MaterialGatePassTracker.Services;
 using MaterialGatePassTracker.Interfaces;
+using MaterialGatePassTracker.Middleware;
+
 
 
 namespace MaterialGatePassTackerAPI.Controllers
