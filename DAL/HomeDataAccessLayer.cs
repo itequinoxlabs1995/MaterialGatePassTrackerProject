@@ -1,8 +1,12 @@
-﻿using MaterialGatePassTacker;
+using MaterialGatePassTacker;
 using MaterialGatePassTacker.Models;
 using MaterialGatePassTracker.Controllers;
+using MaterialGatePassTracker.Middleware;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
+using System.Data.Entity.Core.Objects;
 
 namespace MaterialGatePassTracker.DAL
 {
@@ -443,6 +447,143 @@ namespace MaterialGatePassTracker.DAL
 
         }
 
+        public dynamic TodayCountCompleted()
+        {
+            var TodayCountCompleted = (dynamic)null;
+            try
+            {
+                TodayCountCompleted = (from Table in _materialDbContext.GatesPasses
+                                           join Table1 in _materialDbContext.Statuss on Table.SID equals Table1.SID
+                                           where Table.CreatedOn.Date == DateTime.Today.Date
+                                            && Table1.Status_Name == "Completed"
+                                           select new
+                                           {
+                                               Pending = Table.GPID
+                                           }).Count();
+
+            }
+            catch(Exception exc)
+            {
+                LogWriterClass.LogWrite("TodayCountCompleted DAL:" + exc.Message.ToString(), _logFile);
+
+            }
+            return TodayCountCompleted;
+        }
+
+        public dynamic WeeklyCountCompleted()
+        {
+            var WeeklyCountCompleted = (dynamic)null;
+            try
+            {
+                WeeklyCountCompleted = (from Table in _materialDbContext.GatesPasses
+                                            join Table1 in _materialDbContext.Statuss on Table.SID equals Table1.SID
+                                            where Table.CreatedOn.Date > DateTime.Today.Date.AddDays(-7)
+                                             && Table1.Status_Name == "Completed"
+                                            select new
+                                            {
+                                                Pending = Table.GPID
+                                            }).Count();
+
+            }
+            catch (Exception exc)
+            {
+                LogWriterClass.LogWrite("WeeklyCountCompleted DAL:" + exc.Message.ToString(), _logFile);
+
+            }
+            return WeeklyCountCompleted;
+        }
+
+        public dynamic MonthCountCompleted()
+        {
+            var MonthCountCompleted = (dynamic)null;
+            try
+            {
+                MonthCountCompleted = (from Table in _materialDbContext.GatesPasses
+                                           join Table1 in _materialDbContext.Statuss on Table.SID equals Table1.SID
+                                           where Table.CreatedOn.Date > DateTime.Today.Date.AddDays(-30)
+                                            && Table1.Status_Name == "Completed"
+                                           select new
+                                           {
+                                               Pending = Table.GPID
+                                           }).Count();
+
+            }
+            catch (Exception exc)
+            {
+                LogWriterClass.LogWrite("MonthCountCompleted DAL:" + exc.Message.ToString(), _logFile);
+
+            }
+            return MonthCountCompleted;
+        }
+
+        public dynamic TodayCountPending()
+        {
+            var TodayCountPending = (dynamic)null;
+            try
+            {
+                TodayCountPending = (from Table in _materialDbContext.GatesPasses
+                                    join Table1 in _materialDbContext.Statuss on Table.SID equals Table1.SID
+                                    where Table.CreatedOn.Date == DateTime.Today.Date && Table1.Status_Name == "Pending"
+                                    select new
+                                    {
+                                        Pending = Table.GPID
+                                    }).Count();
+
+
+            }
+            catch (Exception exc)
+            {
+                LogWriterClass.LogWrite("TodayCountPending DAL:" + exc.Message.ToString(), _logFile);
+
+            }
+            return TodayCountPending;
+        }
+
+        public dynamic WeeklyCountPending()
+        {
+            var WeeklyCountPending = (dynamic)null;
+            try
+            {
+                WeeklyCountPending = (from Table in _materialDbContext.GatesPasses
+                                      join Table1 in _materialDbContext.Statuss on Table.SID equals Table1.SID
+                                      where Table.CreatedOn.Date > DateTime.Today.Date.AddDays(-7) && Table1.Status_Name == "Pending"
+                                      select new
+                                      {
+                                          Pending = Table.GPID
+                                      }).Count();
+
+            }
+            catch (Exception exc)
+            {
+                LogWriterClass.LogWrite("TodayCountCompleted DAL:" + exc.Message.ToString(), _logFile);
+
+            }
+            return WeeklyCountPending;
+        }
+
+        public dynamic MonthCountPending()
+        {
+            var MonthCountPending = (dynamic)null;
+            try
+            {
+                MonthCountPending = (from Table in _materialDbContext.GatesPasses
+                                     join Table1 in _materialDbContext.Statuss on Table.SID equals Table1.SID
+                                     where Table.CreatedOn.Date > DateTime.Today.Date.AddDays(-30)
+                                      && Table1.Status_Name == "Pending"
+                                     select new
+                                     {
+                                         Pending = Table.GPID
+                                     }).Count();
+
+            }
+            catch (Exception exc)
+            {
+                LogWriterClass.LogWrite("TodayCountCompleted DAL:" + exc.Message.ToString(), _logFile);
+
+            }
+            return MonthCountPending;
+        }
+
         public T_Gate_Pass AjaxMethod_CascadingList(string type, int IDCast)
         {
             T_Gate_Pass model = new();
@@ -502,17 +643,46 @@ namespace MaterialGatePassTracker.DAL
             {
                 Task.Run(async () =>
                 {
-                    result = await (from Table in _materialDbContext.GatesPasses
-                                    where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
-                                    select new GraphData
-                                    {
-                                        // Table.GPID,
-                                        Date = Table.CreatedOn.Date,
-                                        Pending = 20,
-                                        Completed = 30
-                                        // Table.Vendor_Name
-                                    }).ToListAsync().ConfigureAwait(false);
+
+                     result = await (from Table in _materialDbContext.GatesPasses
+                                        join Table1 in _materialDbContext.Statuss on Table.SID equals Table1.SID
+                                        where Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date
+                                        group new { Table, Table1 } by new { Date = Table.CreatedOn.Date} into grouped
+                                        select new
+                                        {
+                                            Date = grouped.Key.Date,
+                                          //  SID = grouped.Key.SID,
+                                            Completed = grouped.Count(g => g.Table1.Status_Name == "Completed"),
+                                            Pending = grouped.Count(g => g.Table1.Status_Name == "Pending")
+
+                                        }).Distinct().ToListAsync()
+                     .ConfigureAwait(false);
+
+                    /* result = await (from Table in _materialDbContext.GatesPasses
+                                  join Table1 in _materialDbContext.Statuss on Table.SID equals Table1.SID
+                                     where(Table.CreatedOn.Date >= StartDate.Date && Table.CreatedOn.Date <= EndDate.Date)
+                                     // group Table by Table1.SID into grouped
+
+                                    // select new
+                                     select new
+                                     {
+                                         // Table.GPID,
+                                          Date = Table.CreatedOn.Date,
+                                        // Date = EntityFunctions.TruncateTime(Table.CreatedOn),
+                                        // Date = _materialDbContext.GatesPasses.GroupBy(x => x.CreatedOn.Date),
+                                         //Date =  _materialDbContext.GatesPasses.Select(p => p.CreatedOn.Date).Distinct(),
+                                         Pending =  _materialDbContext.Statuss.Select(p => p.Status_Name == "Pending" && p.SID == Table.SID).Distinct().Count(),
+                                         Completed = _materialDbContext.Statuss.Select(p => p.Status_Name == "Completed" && p.SID == Table.SID).Distinct().Count(),
+                                         // Table.Vendor_Name
+                                     }).Distinct().ToListAsync()
+                                     .ConfigureAwait(true);
+                     */
+
                 }).GetAwaiter().GetResult();
+
+                
+
+               
                 LogWriterClass.LogWrite("AjaxMethod DAL:AjaxMethod Success", _logFile);
 
             }
@@ -779,11 +949,7 @@ namespace MaterialGatePassTracker.DAL
             return Uservalid;
         }
 
-        private object dynamic(object value)
-        {
-            throw new NotImplementedException();
-        }
-
+        
 
         //this function Convert to Encord your Password
         public static string EncodePasswordToBase64(string password)
