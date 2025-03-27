@@ -1,6 +1,7 @@
 using Azure.Core;
 using MaterialGatePassTacker.Models;
 using MaterialGatePassTracker.BAL;
+using MaterialGatePassTracker.Middleware;
 using MaterialGatePassTracker.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.VisualBasic;
 using System;
 using System.Diagnostics;
 using System.Reflection;
@@ -424,15 +426,35 @@ namespace MaterialGatePassTracker.Controllers
         public IActionResult Dashboard()       
         {
             string user = DecodeFrom64(HttpContext.Request.Query["user"].ToString());
+           // string user = "";
             IEnumerable<SelectListItem> Soulist = null;
             T_Gate_Pass t_Gate_Pass = new();
+
 
             if (user == "True")
             {               
                 try
-                {
 
+                {
+                    var TodayCountCompleted = _businessClass.TodayCountCompleted();                   
+                    var WeeklyCountCompleted = _businessClass.WeeklyCountCompleted();
+                    var MonthCountCompleted = _businessClass.MonthCountCompleted();
+                    var TodayCountPending = _businessClass.TodayCountPending();
+                    var WeeklyCountPending = _businessClass.WeeklyCountPending();
+                    var MonthCountPending = _businessClass.MonthCountPending();
+
+                    TempData["TodayCountCompleted"] = TodayCountCompleted;
+                    TempData["WeeklyCountCompleted"] = WeeklyCountCompleted;
+                    TempData["MonthCountCompleted"] = MonthCountCompleted;
+
+                    TempData["TodayCountPending"] = TodayCountPending;
+                    TempData["WeeklyCountPending"] = WeeklyCountPending;
+                    TempData["MonthCountPending"] = MonthCountPending;
+                    
                     t_Gate_Pass = _businessClass.Dashboard();
+
+
+
                     LogWriterClass.LogWrite("Dashboard Action:Get Soulist Successfully", _logFile);
 
                 }
@@ -734,7 +756,7 @@ namespace MaterialGatePassTracker.Controllers
     }
 
 
-    public class LogWriterClass
+  /*  public class LogWriterClass
     {
         private static string m_exePath = string.Empty;
         public static void LogWrite(string logMessage, string path)
@@ -783,7 +805,7 @@ namespace MaterialGatePassTracker.Controllers
             }
         }
     }
-
+    */
    
     public sealed record GraphData
     {
