@@ -1,7 +1,8 @@
-﻿using MaterialGatePassTacker.Models;
+using MaterialGatePassTacker.Models;
 using MaterialGatePassTacker;
 using Microsoft.EntityFrameworkCore;
 using Azure.Storage.Blobs;
+using Microsoft.Extensions.FileProviders;
 
 namespace MaterialGatePassTracker.DAL
 {
@@ -9,7 +10,7 @@ namespace MaterialGatePassTracker.DAL
     {
         private readonly string _connectionString = "Your_Storage_Account_Connection_String";
         private readonly string _containerName = "your-container-name";
-        private readonly string _baseLocalPath = "E:\\Uploads"; // Change to your preferred local path
+        private readonly string _baseLocalPath = new PhysicalFileProvider(Directory.GetCurrentDirectory()).Root + @"\Uploads"; // Change to your preferred local path
 
         public async Task<List<object>> UploadFilesToBlob(List<IFormFile> files, string unit, string project, string gate)
         {
@@ -50,7 +51,7 @@ namespace MaterialGatePassTracker.DAL
                 using var stream = new FileStream(filePath, FileMode.Create);
                 await file.CopyToAsync(stream);
 
-                uploadResults.Add(new { FileName = file.FileName, Path = filePath });
+                uploadResults.Add(new { FileName = file.FileName, Path = Path.GetFullPath(filePath) });
             }
 
             return uploadResults;

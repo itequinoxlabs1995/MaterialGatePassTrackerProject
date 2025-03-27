@@ -1,6 +1,10 @@
 
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+/* Your other CSS styles here */
 
 * {
     margin: 0;
@@ -171,9 +175,6 @@ nav ul {
         font-size: 30px;
         font-weight: 500;
     }
-
-
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -1064,8 +1065,6 @@ body {
 
 
 /* For Login Page*/
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 body {
     font-family: 'Open Sans', sans-serif;
