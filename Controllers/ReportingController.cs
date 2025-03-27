@@ -10,6 +10,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using MaterialGatePassTracker.BAL;
+using Microsoft.Extensions.FileProviders;
 
 namespace MaterialGatePassTracker.Controllers
 {
@@ -99,7 +100,7 @@ namespace MaterialGatePassTracker.Controllers
                 if (string.IsNullOrEmpty(filePath))
                     return BadRequest("Folder path is required.");
 
-                string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Uploads");
+                string folderPath = Path.Combine(new PhysicalFileProvider(Directory.GetCurrentDirectory()).Root, "Uploads");
                 string decodedPath = Uri.UnescapeDataString(filePath);
 
                 if (!Directory.Exists(decodedPath))
@@ -121,11 +122,6 @@ namespace MaterialGatePassTracker.Controllers
                 return StatusCode(500, $"Error loading images: {ex.Message}");
             }
         }
-
-
-
-
-
 
 
         private async Task<string> RenderViewToStringAsync(string viewName, object model)
