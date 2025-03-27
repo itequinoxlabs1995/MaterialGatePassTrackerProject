@@ -120,7 +120,7 @@ namespace MaterialGatePassTackerAPI.Controllers
             }
         }
     }
-    public class LogWriterClass
+  /*  public class LogWriterClass
     {
         private static string m_exePath = string.Empty;
         public static void LogWrite(string logMessage, string path)
@@ -169,5 +169,6 @@ namespace MaterialGatePassTackerAPI.Controllers
             }
         }
     }
+    */
 
 }
