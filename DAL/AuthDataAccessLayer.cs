@@ -28,82 +28,95 @@ namespace MaterialGatePassTracker.DAL
 
         }
 
-        public dynamic Login(Login model)
-        {
-            var user = (dynamic)null;
+      public dynamic Login(Login model)
+ {
+     var user = (dynamic)null;
+     var getRole = (dynamic)null;
 
-            try
-            {
-                if (model.User_Name != null && model.Password != null)
-                {
-                    string Encypass = EncodePasswordToBase64(model.Password);
-
-
-                    user = _materialDbContext.Users.FirstOrDefault(u => u.User_Name == model.User_Name);
-
-                    if (user == null)
-                    {
-                        LogWriterClass.LogWrite("Login DAL:User not found.", _logFile);
-                        return "User not found.";
-                    }
-
-                    if (user.Password != Encypass)
-                    {
-                        LogWriterClass.LogWrite("Login DAL:Incorrected password.", _logFile);
-                        return "Incorrected password";
-                    }
-
-                    bool Loginuser = _materialDbContext.Users
-                            .FirstOrDefault(u => u.User_Name == model.User_Name
-                                         && u.Password == Encypass) != null;
-                    //Db check
-                    if (Loginuser == true)
-                    {
-                        LogWriterClass.LogWrite("Login DAL:Token Logic start.", _logFile);
-                        //JWT Token Logic
-                        var authClaims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, model.User_Name),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                };
-
-                        var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
-
-                        var token = new JwtSecurityToken(
-                            issuer: _configuration["JWT:ValidIssuer"],
-                            audience: _configuration["JWT:ValidAudience"],
-                            expires: DateTime.Now.AddMinutes(30),
-                            claims: authClaims,
-                            signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
-                            );
-
-                        return new
-                        {
-                            token = new JwtSecurityTokenHandler().WriteToken(token),
-                            expiration = token.ValidTo
-                        };
-
-                    }
-                    else
-                    {
-                        LogWriterClass.LogWrite("Login DAL:Please Enter Valid Username and Password", _logFile);
-                        return new Models.Response
-                        { Status = "Error", Message = "Please Enter Valid Username and Password" }
-                        ;
+     try
+     {
+         if (model.User_Name != null && model.Password != null)
+         {
+             string Encypass = EncodePasswordToBase64(model.Password);
 
 
-                    }
+             user = _materialDbContext.Users.FirstOrDefault(u => u.User_Name == model.User_Name);
 
-                }
+             if (user == null)
+             {
+                 LogWriterClass.LogWrite("Login DAL:User not found.", _logFile);
+                 return "User not found.";
+             }
+
+             if (user.Password != Encypass)
+             {
+                 LogWriterClass.LogWrite("Login DAL:Incorrected password.", _logFile);
+                 return "Incorrected password";
+             }
+
+             bool Loginuser = _materialDbContext.Users
+                     .FirstOrDefault(u => u.User_Name == model.User_Name
+                                  && u.Password == Encypass) != null;
+             //Db check
+             if (Loginuser == true)
+             {
+
+                 getRole = (from Table in _materialDbContext.Users
+                           join Table1 in _materialDbContext.Roles on Table.RID equals Table1.RID
+                           where Table.User_Name == model.User_Name
+                            select Table1.Role_Name).FirstOrDefault();
+
+                
 
 
-            }
-            catch (Exception exc)
-            {
-                exc.Message.ToString();
-            }
-            return user;
-        }
+                 LogWriterClass.LogWrite("Login DAL:Token Logic start.", _logFile);
+                 //JWT Token Logic
+                 var authClaims = new List<Claim>
+         {
+             new Claim(ClaimTypes.Name, model.User_Name),
+             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+         };
+
+                 var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
+
+                 var token = new JwtSecurityToken(
+                     issuer: _configuration["JWT:ValidIssuer"],
+                     audience: _configuration["JWT:ValidAudience"],
+                     expires: DateTime.Now.AddMinutes(30),
+                     claims: authClaims,
+                     signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
+                     );
+
+                 return new
+                 {
+                     
+                     token = new JwtSecurityTokenHandler().WriteToken(token),
+                     expiration = token.ValidTo
+                     ,Username=model.User_Name
+                     ,Role = getRole
+                 };
+
+             }
+             else
+             {
+                 LogWriterClass.LogWrite("Login DAL:Please Enter Valid Username and Password", _logFile);
+                 return new Models.Response
+                 { Status = "Error", Message = "Please Enter Valid Username and Password" }
+                 ;
+
+
+             }
+
+         }
+
+
+     }
+     catch (Exception exc)
+     {
+         exc.Message.ToString();
+     }
+     return user;
+ }
         public string EncodePasswordToBase64(string password)
         {
             byte[] encData_byte = new byte[password.Length];
